@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ragy Nour | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    header {
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: white;
+      padding: 3.5rem 2rem;
+      text-align: center;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+      position: relative;
+    }
+    header h1 {
+      font-size: 2.75rem;
+      margin-bottom: 0.5rem;
+      letter-spacing: 1px;
+    }
+    header p {
+      font-size: 1.25rem;
+      margin: 0;
+      opacity: 0.95;
+    }
+    section {
+      max-width: 960px;
+      margin: 2.5rem auto;
+      padding: 0 1.5rem;
+    }
+    h2 {
+      font-size: 1.8rem;
+      color: #1a2b6d;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 0.3rem;
+    }
+    .project, .work {
+      background: white;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+    .project h3, .work h4 {
+      margin-top: 0;
+      color: #1e3c72;
+    }
+.image-gallery {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  margin-top: 1rem;
+  overflow-x: auto; /* allows scrolling if too many images */
+}
+
+.image-gallery img {
+  width: 300px;
+  height: auto;
+  border-radius: 4px;
+  object-fit: cover;
+  flex-shrink: 0; /* prevent them from shrinking */
+}
+    video {
+      width: 50%;
+      border-radius: 10px;
+      margin-top: 1rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    ul {
+      padding-left: 1.2rem;
+    }
+    ul li {
+      margin-bottom: 0.5rem;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #888;
+      background-color: #f1f1f1;
+    }
+    a {
+      color: #2a5298;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Ragy Nour</h1>
+    <p>Engineer &nbsp;|&nbsp; Game Developer &nbsp;|&nbsp; Problem Solver</p>
+    <div class="contact">
+      <p>ragyhassan22@gmail.com | <a href="https://github.com/RgHNr">Github</a></p>
+    </div>
+  </header>
+
+  <section>
+    <h2>About Me</h2>
+    <p>
+      Communication & Electronics engineer with a strong foundation in software development,
+      including mobile app development, Unity game design, and signal processing. Actively
+      exploring system architecture and advanced computing principles.
+    </p>
+  </section>
+
+<section>
+    <h2>Skills & Tools</h2>
+    <ul>
+      <li><strong>Programming:</strong> C#, Unity,hlsl, Compute shader, MATLAB, Python</li>
+      <li><strong>Tools:</strong> Unity3D, Blender, Krita, Circuit Debugging</li>
+      <li><strong>Languages:</strong> English, Arabic</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Projects</h2>
+
+    <div class="project">
+      <h3>Tri-Language Dictionary Translator</h3>
+      <p>
+        A multilingual dictionary app developed and published on the Google Play Store with live ad integration.
+        Designed and built from scratch, including UI/UX, data handling, and release management. 1000+ downloads.
+      </p>
+      <p>Check it on <a href="https://play.google.com/store/apps/details?id=com.Squaresumgames.Nobiina"> Google Play</a></p>
+      <div class="image-gallery">
+        <img src="dictionary1.png" alt="Dictionary Screenshot 1" />
+        <img src="dictionary2.jpg" alt="Dictionary Screenshot 2" />
+        <img src="dictionary3.png" alt="Dictionary Screenshot 3" />
+      </div>
+    </div>
+
+    <div class="project">
+      <h3>3rd-Person Football Mobile Game (In Progress)</h3>
+      <p>
+        Built with Unity, this arcade-style mobile game features swipe-based mechanics,
+        real-time collision handling, and Unity Ads SDK integration. Deployed to the Play Store.
+      </p>
+      <video controls preload="none" poster="football2.png">
+        <source src="testfootball2.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <div class="image-gallery">
+        <img src="football1.png" alt="Gameplay Screenshot 1" />
+        <img src="football2.png" alt="Gameplay Screenshot 2" />
+        <img src="football3.png" alt="Gameplay Screenshot 3" />
+        <img src="football4.png" alt="Gameplay Screenshot 3" />
+        <img src="football5.png" alt="Gameplay Screenshot 3" />
+      </div>
+    </div>
+<div class="project">
+      <h3>Hack&Slash Mobile Game (In Progress)</h3>
+      <p>
+        Built with Unity, this arcade-style mobile game features swipe-based mechanics,
+        real-time collision handling, and Unity Ads SDK integration. Deployed to the Play Store.
+      </p>
+      <video controls preload="none" poster="thumbnail.jpg">
+        <source src="hacknSlash.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <div class="image-gallery">
+        <img src="slash1.png" alt="Gameplay Screenshot 1" />
+        <img src="slash2.png" alt="Gameplay Screenshot 2" />
+        <img src="slash3.png" alt="Gameplay Screenshot 3" />
+      </div>
+    </div>
+<div class="project">
+      <h3>Dynamic Polygon Mobile Game (Prototype)</h3>
+      <p>
+        Built with Unity, this arcade-style mobile game features swipe-based mechanics,
+        real-time collision handling, and Unity Ads SDK integration. Deployed to the Play Store.
+      </p>
+      <video controls preload="none" poster="dynamicPolygon.PNG">
+        <source src="DynamicPolygon.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      
+    </div>
+
+    <div class="project">
+      <h3>Signal Quantization System (MATLAB)</h3>
+      <p>
+        Designed and implemented a signal quantization system using MATLAB,
+        applying real-world signal processing theories for conversion and analysis.
+      </p>
+    </div>
+  </section>
+  
+
+  
+  <footer>
+    <p>&copy; Ragy Nour - Portfolio Website</p>
+  </footer>
+</body>
+</html>
