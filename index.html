@@ -1,220 +1,438 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ragy Nour | Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ragy Nour — Game Developer Portfolio</title>
+  <meta name="description" content="Ragy Nour — Game Developer. Unity, C#, shaders, gameplay systems, mobile & console prototypes. Play demos, watch videos, view source and download resume."/>
+  <!-- Open Graph -->
+  <meta property="og:title" content="Ragy Nour — Game Developer Portfolio" />
+  <meta property="og:description" content="Unity, C#, shaders, gameplay systems, mobile & console prototypes. Play demos, watch videos, view source." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/og-thumbnail.png" />
+
+  <!-- Structured data (Person + Portfolio) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Ragy Nour",
+    "jobTitle": "Game Developer & Software Engineer",
+    "url": "https://your-portfolio.example.com",
+    "sameAs": ["https://github.com/RgHNr"]
+  }
+  </script>
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
   <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f9f9f9;
-      color: #333;
+    :root{
+      --bg: #0f1724;
+      --card: #ffffff;
+      --muted: #9aa4bf;
+      --accent-1: #1e90ff;
+      --accent-2: #7c3aed;
+      --glass: rgba(255,255,255,0.06);
+      --radius: 12px;
+      --maxw: 1100px;
+      color-scheme: light dark;
     }
-    header {
-      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-      color: white;
-      padding: 3.5rem 2rem;
-      text-align: center;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-      position: relative;
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+      background: linear-gradient(180deg,#071021 0%, #0f1724 50%);
+      color:#e6eef8;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
     }
-    header h1 {
-      font-size: 2.75rem;
-      margin-bottom: 0.5rem;
-      letter-spacing: 1px;
+    a{color:inherit}
+
+    .wrap{
+      max-width:var(--maxw);
+      margin:2rem auto;
+      padding:1rem;
     }
-    header p {
-      font-size: 1.25rem;
-      margin: 0;
-      opacity: 0.95;
+
+    /* Header / Hero */
+    header.hero{
+      background: linear-gradient(135deg, rgba(30,144,255,0.12), rgba(124,58,237,0.08));
+      border-radius:18px;
+      padding:2rem;
+      display:flex;
+      gap:1.5rem;
+      align-items:center;
+      box-shadow: 0 6px 30px rgba(2,6,23,0.6), inset 0 1px 0 rgba(255,255,255,0.02);
+      position:relative;
     }
-    section {
-      max-width: 960px;
-      margin: 2.5rem auto;
-      padding: 0 1.5rem;
+    .hero .avatar{
+      width:120px;height:120px;border-radius:14px;flex:0 0 120px;overflow:hidden;background:linear-gradient(90deg,var(--accent-1),var(--accent-2));display:flex;align-items:center;justify-content:center;font-weight:800;font-size:2rem;color:white;
     }
-    h2 {
-      font-size: 1.8rem;
-      color: #1a2b6d;
-      margin-bottom: 1rem;
-      border-bottom: 2px solid #ddd;
-      padding-bottom: 0.3rem;
+    .hero h1{margin:0;font-size:1.6rem;letter-spacing:0.2px}
+    .hero p.lead{margin:0.25rem 0;color:var(--muted);font-size:0.98rem}
+
+    .hero .actions{display:flex;gap:0.6rem;margin-top:0.6rem}
+    .btn{display:inline-flex;align-items:center;gap:0.6rem;padding:0.6rem 0.9rem;border-radius:10px;background:linear-gradient(90deg,var(--accent-1),var(--accent-2));color:white;text-decoration:none;font-weight:600;border:0;cursor:pointer}
+    .btn.secondary{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
+
+    /* Layout */
+    .grid{display:grid;grid-template-columns:1fr;gap:1.2rem;margin-top:1.2rem}
+    @media(min-width:880px){
+      .grid{grid-template-columns: 1fr 340px;align-items:start}
     }
-    .project, .work {
-      background: white;
-      padding: 1.5rem;
-      margin-bottom: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-    }
-    .project h3, .work h4 {
-      margin-top: 0;
-      color: #1e3c72;
-    }
-.image-gallery {
+
+    /* Sidebar */
+    aside.card{background:var(--glass);padding:1rem;border-radius:12px;backdrop-filter: blur(6px);}
+    .skills{display:flex;flex-wrap:wrap;gap:0.5rem}
+    .tag{background:rgba(255,255,255,0.04);padding:0.45rem 0.6rem;border-radius:999px;font-size:0.85rem;color:var(--muted)}
+    .stat{display:flex;gap:0.6rem;align-items:center;margin-top:0.6rem}
+    .stat strong{font-size:1.1rem}
+
+    /* Projects */
+    section.projects{grid-column:1/2}
+    .projects-grid{display:grid;grid-template-columns:1fr;gap:1rem}
+    @media(min-width:720px){.projects-grid{grid-template-columns:repeat(2,1fr)}}
+
+    .card.project{background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));padding:0;border-radius:12px;overflow:hidden}
+    .project .media{width:100%;height:180px;object-fit:cover;background:#071225;display:block}
+    .project .content{padding:1rem}
+    .project h3{margin:0 0 0.4rem 0}
+    .project p{margin:0 0 0.8rem 0;color:var(--muted)}
+    .meta{display:flex;gap:0.5rem;flex-wrap:wrap}
+    .meta .pill{padding:0.35rem 0.6rem;border-radius:999px;font-size:0.82rem;background:rgba(255,255,255,0.03);color:var(--muted)}
+
+    /* Gallery & Video */
+    .thumbs{display:flex;gap:0.6rem;overflow:auto;padding:0.6rem}
+    .thumbs img{width:120px;height:72px;object-fit:cover;border-radius:8px;flex:0 0 auto;cursor:pointer}
+
+    /* Modal */
+    #modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(1,6,12,0.7);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 1200;
+}
+
+#modal.open { display: flex; }
+
+/* Constrain modal box to viewport, allow scrolling inside */
+#modal .box {
+  width: min(1100px, 96vw);
+  max-height: calc(100vh - 60px); /* leave space for UI and close button */
+  background: #000;
+  border-radius: 10px;
+  overflow: auto; /* make modal content scrollable on tall images */
+  position: relative;
+  padding: 12px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+}
+
+/* Gallery layout inside modal (stacked, centered) */
+#modal .gallery {
   display: flex;
-  flex-direction: row;
-  gap: 10px;
-  margin-top: 1rem;
-  overflow-x: auto; /* allows scrolling if too many images */
+  flex-direction: column;
+  gap: 14px;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-.image-gallery img {
-  width: 300px;
+/* Make each image respect viewport height and keep aspect ratio */
+#modal .gallery img {
+  max-width: calc(100% - 24px);   /* slightly inset from edges */
+  width: auto;
   height: auto;
-  border-radius: 4px;
-  object-fit: cover;
-  flex-shrink: 0; /* prevent them from shrinking */
+  max-height: calc(100vh - 180px); /* ensure portrait images fit on screen */
+  object-fit: contain;
+  display: block;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.6);
 }
-    .video-responsive {
-    position: relative; /* Establishes a positioning context for the iframe */
-    padding-bottom: 56.25%; /* 16:9 Aspect Ratio (9 / 16 = 0.5625) */
-    /* For a 4:3 aspect ratio, use padding-bottom: 75%; (3 / 4 = 0.75) */
-    height: 0;
-    overflow: hidden; /* Hides any overflow outside this container */
-    max-width: 100%; /* Ensures it doesn't exceed its parent's width */
-    background: #000; /* Optional: black background before video loads */
-}
+    /* Footer */
+    footer{opacity:0.9;color:var(--muted);text-align:center;margin:2.5rem 0}
 
-.video-responsive iframe {
-    position: absolute; /* Positions the iframe relative to the .video-responsive container */
-    top: 0;
-    left: 0;
-    width: 100%; /* Make the iframe fill the container's width */
-    height: 100%; /* Make the iframe fill the container's height */
-}
-    ul {
-      padding-left: 1.2rem;
+    /* Utility*/
+    .muted{color:var(--muted)}
+    .center{text-align:center}
+
+    /* small tweaks for light backgrounds (if user copies to plain html) */
+    @media (prefers-color-scheme: light){
+      body{color:#0b1220;background:linear-gradient(180deg,#f7f9fc,#eef3ff)}
+      .hero{box-shadow:0 8px 32px rgba(30,60,100,0.06)}
+      :root{--muted:#475569}
     }
-    ul li {
-      margin-bottom: 0.5rem;
-    }
-    footer {
-      text-align: center;
-      padding: 2rem;
-      font-size: 0.9rem;
-      color: #888;
-      background-color: #f1f1f1;
-    }
-    a {
-      color: #2a5298;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
+
+    /* Smooth scroll for project anchors */
+    html{scroll-behavior:smooth}
+
+    /* Accessibility focus */
+    a:focus, button:focus{outline:3px solid rgba(255,255,255,0.08);outline-offset:2px}
+
   </style>
 </head>
 <body>
-  <header>
-    <h1>Ragy Nour</h1>
-    <p>Engineer &nbsp;|&nbsp; Game Developer &nbsp;|&nbsp; Problem Solver</p>
-    <div class="contact">
-      <p>ragyhassan22@gmail.com | <a href="https://github.com/RgHNr">Github</a></p>
-    </div>
-  </header>
+  <a class="sr-only" href="#main">Skip to content</a>
 
-  <section>
-    <h2>About Me</h2>
-    <p>
-      Communication & Electronics engineer with a strong foundation in software development,
-      including mobile app development, Unity game design, and signal processing. Actively
-      exploring system architecture and advanced computing principles.
-    </p>
-  </section>
-
-<section>
-    <h2>Skills & Tools</h2>
-    <ul>
-      <li><strong>Programming:</strong> C#, Unity,hlsl, Compute shader, MATLAB, Python</li>
-      <li><strong>Tools:</strong> Unity3D, Blender, Krita, Circuit Debugging</li>
-      <li><strong>Languages:</strong> English, Arabic</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>Projects</h2>
-
-    <div class="project">
-      <h3>Tri-Language Dictionary Translator</h3>
-      <p>
-        A multilingual dictionary app developed and published on the Google Play Store with live ad integration.
-        Designed and built from scratch, including UI/UX, data handling, and release management. 1000+ downloads.
-      </p>
-      <p>Check it on <a href="https://play.google.com/store/apps/details?id=com.Squaresumgames.Nobiina"> Google Play</a></p>
-      <div class="image-gallery">
-        <img src="dictionary1.png" alt="Dictionary Screenshot 1" />
-        <img src="dictionary2.jpg" alt="Dictionary Screenshot 2" />
-        <img src="dictionary3.jpg" alt="Dictionary Screenshot 3" />
+  <div class="wrap">
+    <header class="hero" role="banner">
+      <div class="avatar" aria-hidden="true">
+        RN
       </div>
-    </div>
-
-    <div class="project">
-      <h3>3rd-Person Football Mobile Game (In Progress)</h3>
-      <p>
-        Built with Unity, arcade-style football game combines fast-paced gameplay and features swipe-based mechanics, it has a fully fledge market where users can buy and upgrade players, build better stadiums and buy their favourite colored jersys.
-      </p>
-<section id="videos">
-   
-    <div class="video-item">
-        
-        <div class="video-responsive">
-             <iframe width="1431" height="660" src="https://www.youtube.com/embed/8gN5xjQZUJI" title="football Game update" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      <div style="flex:1">
+        <h1>Ragy Nour — Game Developer</h1>
+        <p class="lead">Engineer &middot; Unity &middot; Gameplay Systems &middot; Graphics (HLSL / Compute)</p>
+        <div class="actions">
+          <a class="btn" href="#projects">View Projects</a>
+          <a class="btn secondary" href="mailto:ragyhassan22@gmail.com">Contact</a>
+          <a class="btn secondary" href="https://github.com/RgHNr" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn secondary" href="https://play.google.com/store/apps/details?id=com.Squaresumgames.Nobiina" target="_blank" rel="noopener">Play Store</a>
         </div>
-        <p>A quick demo of the game</p>
-    </div>
-
-    </section>
-   
-      <div class="image-gallery">
-        <img src="football1.png" alt="Gameplay Screenshot 1" />
-        <img src="football2.png" alt="Gameplay Screenshot 2" />
-        <img src="football3.png" alt="Gameplay Screenshot 3" />
-        <img src="football4.png" alt="Gameplay Screenshot 3" />
-        <img src="football5.png" alt="Gameplay Screenshot 3" />
       </div>
-    </div>
-<div class="project">
-      <h3>Hack&Slash Mobile Game (In Progress)</h3>
-      <p>
-        Built with Unity, this arcade-style mobile game also features swipe-based mechanics. Users dashes through enemys, in a strategic way. More to come in the future.
-      </p>
-<iframe width="482" height="857" src="https://www.youtube.com/embed/CVmODg2fbAc" title="Hack n Slash Prototype" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-      
-      <div class="image-gallery">
-        <img src="slash1.png" alt="Gameplay Screenshot 1" />
-        <img src="slash2.png" alt="Gameplay Screenshot 2" />
-        <img src="slash3.png" alt="Gameplay Screenshot 3" />
+      <div style="width:220px;display:flex;flex-direction:column;gap:0.6rem">
+        <div class="card stat" aria-hidden="true">
+          <div style="flex:1">
+            <div class="muted">Experience</div>
+            <strong>Unity & C# • 3+ years</strong>
+          </div>
+        </div>
+        <div class="card stat">
+          <div style="flex:1">
+            <div class="muted">Downloads</div>
+            <strong>1k+ App installs</strong>
+          </div>
+        </div>
       </div>
-    </div>
-<div class="project">
-      <h3>Dynamic Polygon Mobile Game (Prototype)</h3>
-      <p>
-        Built with Unity, this arcade-style endless runner type, where in the future players could dodge or exploit the nature of the cube that it could shrink or expand in a direction to advance. They could find a wall, a hole they could fall into , spikes or even lasers.
-      </p>
-      <video controls preload="none" poster="dynamicPolygon.png">
-        <source src="DynamicPolygon.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-      
-    </div>
+    </header>
 
-    <div class="project">
-      <h3>Signal Quantization System (MATLAB)</h3>
-      <p>
-        Designed and implemented a signal quantization system using MATLAB,
-        applying real-world signal processing theories for conversion and analysis.
-      </p>
-    </div>
-  </section>
-  
+    <main id="main" class="grid" role="main">
+      <section class="projects" id="projects">
+        <h2 style="margin:0 0 1rem 0">Projects</h2>
 
-  
-  <footer>
-    <p>&copy; Ragy Nour - Portfolio Website</p>
-  </footer>
+        <div style="display:flex;gap:0.6rem;flex-wrap:wrap;margin-bottom:0.9rem">
+          <button class="btn secondary" data-filter="all">All</button>
+          <button class="btn secondary" data-filter="unity">Unity</button>
+          <button class="btn secondary" data-filter="mobile">Mobile</button>
+          <button class="btn secondary" data-filter="shader">Shaders</button>
+        </div>
+
+        <div class="projects-grid" id="projectsGrid">
+
+          <!-- Dictionary app -->
+          <article class="card project" data-tags="mobile,unity,published">
+            <img class="media" src="dictionary1.png" alt="Tri-Language Dictionary screenshot" loading="lazy">
+            <div class="content">
+              <h3>Tri-Language Dictionary Translator — (Published)</h3>
+              <p class="muted">Multilingual dictionary mobile app. Built UI/UX, data handling, in-app ads and release pipeline. 1k+ installs on Google Play.</p>
+              <div class="meta" style="margin-top:0.6rem">
+                <span class="pill">C#</span>
+                <span class="pill">Android</span>
+                <span class="pill">Release-ready</span>
+              </div>
+              <div style="margin-top:0.85rem;display:flex;gap:0.5rem;align-items:center">
+                <a class="btn" href="https://play.google.com/store/apps/details?id=com.Squaresumgames.Nobiina" target="_blank" rel="noopener">Open on Play Store</a>
+                <button class="btn secondary" data-media="dictionary1.png">Gallery</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Football game -->
+          <article class="card project" data-tags="unity,mobile,prototype">
+            <img class="media" src="football1.png" alt="Football game thumbnail" loading="lazy">
+            <div class="content">
+              <h3>3rd-Person Football Mobile Game — (In Progress)</h3>
+              <p class="muted">Arcade football with swipe controls, in-game market, player progression and stadium upgrades. Prototype playable; live demo video available.</p>
+              <div class="meta">
+                <span class="pill">Unity</span>
+                <span class="pill">Gameplay</span>
+                <span class="pill">Economy</span>
+              </div>
+              <div style="margin-top:0.85rem;display:flex;gap:0.5rem;align-items:center">
+                <button class="btn" data-video="https://www.youtube.com/embed/8gN5xjQZUJI">Watch Demo</button>
+                <button class="btn secondary" data-media="football1.png,football2.png,football3.png">Screenshots</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Hack & Slash -->
+          <article class="card project" data-tags="unity,prototype,arcade">
+            <img class="media" src="slash1.png" alt="Hack & Slash thumbnail" loading="lazy">
+            <div class="content">
+              <h3>Hack & Slash — (Prototype)</h3>
+              <p class="muted">Swipe-based arcade action. Fast controls, dash mechanics, enemy patterns and level progression. Prototype video included.</p>
+              <div class="meta">
+                <span class="pill">Unity</span>
+                <span class="pill">Controls</span>
+                <span class="pill">Prototype</span>
+              </div>
+              <div style="margin-top:0.85rem;display:flex;gap:0.5rem;align-items:center">
+                <button class="btn" data-video="https://www.youtube.com/embed/CVmODg2fbAc">Watch Prototype</button>
+                <button class="btn secondary" data-media="slash1.png,slash2.png,slash3.png">Screenshots</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Dynamic Polygon -->
+          <article class="card project" data-tags="unity,prototype,graphics">
+            <img class="media" src="dynamicPolygon.png" alt="Dynamic Polygon thumbnail" loading="lazy">
+            <div class="content">
+              <h3>Dynamic Polygon — (Prototype)</h3>
+              <p class="muted">Endless runner with dynamic geometry; explores runtime mesh transforms, collisions and shader-driven effects. Small gameplay clip included.</p>
+              <div class="meta">
+                <span class="pill">HLSL</span>
+                <span class="pill">Compute Shader</span>
+                <span class="pill">Runtime Mesh</span>
+              </div>
+              <div style="margin-top:0.85rem;display:flex;gap:0.5rem;align-items:center">
+                <button class="btn" data-video="DynamicPolygon.mp4">Play Clip</button>
+                <button class="btn secondary" data-media="dynamicPolygon.png">Poster</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Signal quantization (MATLAB) -->
+          <article class="card project" data-tags="matlab,signals">
+            <img class="media" src="matlab.png" alt="MATLAB project" loading="lazy">
+            <div class="content">
+              <h3>Signal Quantization System (MATLAB)</h3>
+              <p class="muted">Quantization and analysis pipeline implemented in MATLAB. Demonstrates signal processing knowledge and numeric validation.</p>
+              <div class="meta">
+                <span class="pill">MATLAB</span>
+                <span class="pill">DSP</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+      </section>
+
+      <aside class="card">
+        <h3 style="margin-top:0">About</h3>
+        <p class="muted">Communication & Electronics engineer with a strong foundation in software engineering — Unity, shaders, gameplay systems and mobile development. Focused on performance, polish and shipping.</p>
+
+        <h4 style="margin:0.9rem 0 0.4rem 0">Skills & Tools</h4>
+        <div class="skills">
+          <span class="tag">C#</span>
+          <span class="tag">Unity</span>
+          <span class="tag">HLSL</span>
+          <span class="tag">Compute Shaders</span>
+          <span class="tag">Blender</span>
+          <span class="tag">Krita</span>
+          <span class="tag">MATLAB</span>
+          <span class="tag">Python</span>
+        </div>
+
+        <h4 style="margin:0.9rem 0 0.3rem 0">Languages</h4>
+        <div class="muted">English — Professional • Arabic — Native</div>
+
+        <h4 style="margin:0.9rem 0 0.3rem 0">Contact</h4>
+        <div style="display:flex;flex-direction:column;gap:0.3rem">
+          <a class="muted" href="mailto:ragyhassan22@gmail.com">ragyhassan22@gmail.com</a>
+          <a class="muted" href="https://github.com/RgHNr" target="_blank" rel="noopener">github.com/RgHNr</a>
+        </div>
+
+        <div style="margin-top:0.9rem">
+          <a class="btn" href="CV.pdf" download>Download Resume</a>
+        </div>
+      </aside>
+    </main>
+
+    <footer>
+      <div class="muted">© Ragy Nour — Game Developer • Built with ❤️ in HTML/CSS/JS</div>
+    </footer>
+  </div>
+
+  <!-- Modal for video and gallery -->
+  <div id="modal" class="modal" role="dialog" aria-hidden="true">
+    <div class="box" role="document">
+      <button id="closeModal" style="position:absolute;right:16px;top:16px;z-index:2;padding:8px;border-radius:8px;background:rgba(255,255,255,0.06);border:none;color:white;cursor:pointer">✕</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <script>
+    // Small interactive helpers: filter, open video, gallery modal
+    const modal = document.getElementById('modal');
+    const modalContent = document.getElementById('modalContent');
+    const closeModal = document.getElementById('closeModal');
+
+    function openModal(html){
+      modalContent.innerHTML = html;
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden','false');
+    }
+    function close(){
+      modal.classList.remove('open');
+      modalContent.innerHTML = '';
+      modal.setAttribute('aria-hidden','true');
+    }
+    closeModal.addEventListener('click', close);
+    modal.addEventListener('click', (e)=>{ if(e.target===modal) close(); });
+
+    document.querySelectorAll('[data-video]').forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        const url = btn.getAttribute('data-video');
+        let html='';
+        if(url.endsWith('.mp4')){
+          html = `<video controls autoplay style="width:100%;height:100%;max-height:70vh;background:#000"><source src="${url}" type="video/mp4">Your browser doesn't support the video tag.</video>`;
+        } else {
+          html = `<iframe src="${url}" title="video" allow="autoplay; encrypted-media; picture-in-picture" frameborder="0" allowfullscreen></iframe>`;
+        }
+        openModal(html);
+      });
+    });
+
+    document.querySelectorAll('[data-media]').forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        const mediaList = btn.getAttribute('data-media').split(',');
+        let html = '<div style="display:flex;gap:8px;flex-wrap:wrap;padding:12px;background:#05060a">';
+        mediaList.forEach(src=>{
+          html += `<img src="${src.trim()}" style="max-width:48%;border-radius:8px;margin-bottom:6px;object-fit:contain">`;
+        });
+        html += '</div>';
+        openModal(html);
+      });
+    });
+
+    // Filters
+    document.querySelectorAll('[data-filter]').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        const tag = btn.getAttribute('data-filter');
+        document.querySelectorAll('.project').forEach(p=>{
+          if(tag==='all') p.style.display='block';
+          else {
+            const tags = p.getAttribute('data-tags');
+            p.style.display = tags && tags.includes(tag) ? 'block':'none';
+          }
+        });
+      });
+    });
+
+    // Keyboard: close modal with Escape
+    document.addEventListener('keydown',(e)=>{ if(e.key==='Escape') close(); });
+
+    // Accessibility: move focus to modal when opened
+    const observer = new MutationObserver(()=>{
+      if(modal.classList.contains('open')){
+        modal.querySelector('button, a, iframe, video, img')?.focus();
+      }
+    });
+    observer.observe(modal,{attributes:true,attributeFilter:['class']});
+
+    // Small improvement: lazy-loading for older browsers fallback
+    document.addEventListener('DOMContentLoaded',()=>{
+      if('loading' in HTMLImageElement.prototype) return;
+      document.querySelectorAll('img[loading="lazy"]').forEach(img=>{
+        img.setAttribute('src', img.dataset.src || img.src);
+      });
+    });
+  </script>
 </body>
 </html>
