@@ -448,6 +448,10 @@
 
         function openVideoModal(videoSrc) {
             if (!videoSrc) return;
+            gtag('event', 'video_start', {
+                'video_url': videoSrc,
+                'video_name': videoSrc.split('/').pop() // This grabs just the filename like 'football.mp4'
+            });
 
             video.src = videoSrc;
             modal.classList.remove('hidden');
