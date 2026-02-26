@@ -448,7 +448,7 @@
 
         function openVideoModal(videoSrc) {
             if (!videoSrc) return;
-            gtag('event', 'video_start', {
+            gtag('event', 'demo_video_play', {
                 'video_url': videoSrc,
                 'video_name': videoSrc.split('/').pop() // This grabs just the filename like 'football.mp4'
             });
