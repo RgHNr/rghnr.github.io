@@ -1,9 +1,7 @@
 <!DOCTYPE html>
-<html class="dark" lang="en">
-
+<html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QLWS1P6H46"></script>
+     <script async src="https://www.googletagmanager.com/gtag/js?id=G-QLWS1P6H46"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
@@ -12,488 +10,1104 @@
         gtag('config', 'G-QLWS1P6H46');
     </script>
     <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Ragy Nour - Game Developer Portfolio</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-        rel="stylesheet" />
-    <link href="https://fonts.googleapis.com" rel="preconnect" />
-    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Noto+Sans:wght@400;500;700&amp;display=swap"
-        rel="stylesheet" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-        rel="stylesheet" />
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#0f0ff0",
-                        "background-light": "#f5f5f8",
-                        "background-dark": "#101022",
-                    },
-                    fontFamily: {
-                        "display": ["Space Grotesk", "sans-serif"],
-                        "body": ["Noto Sans", "sans-serif"]
-                    },
-                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
-                },
-            },
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#09090f" />
+    <title>Ragy Nour   Unity Game Developer Portfolio</title>
+    <meta name="description" content="Ragy Nour - Performance-focused Unity Game Developer. Mobile architecture, GPU/CPU optimization, HLSL shaders, and clean scalable C# systems. Shipped titles to Google Play." />
+    <meta name="author" content="Ragy Nour" />
+    <meta name="keywords" content="game developer portfolio, Unity developer, C# programmer, mobile game developer, GPU optimization, game dev Egypt" />
+    <meta property="og:title" content="Ragy Nour   Unity Game Developer Portfolio" />
+    <meta property="og:description" content="Performance-focused Unity developer shipping high-performance mobile games. View projects, showreel, and resume." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="canonical" href="https://ragynour.dev/portfolio-guide.html" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+    <style>
+        /* ======== DESIGN TOKENS ======== */
+        :root {
+            --bg:           #09090f;
+            --bg-raised:    #0f0f1a;
+            --surface:      #13132a;
+            --surface-2:    #191938;
+            --border:       #252550;
+            --border-soft:  #1e1e40;
+            --text:         #eaeaf2;
+            --text-dim:     #9898b0;
+            --text-faint:   #6a6a82;
+            --primary:      #6366f1;
+            --primary-b:    #818cf8;
+            --accent:       #22d3ee;
+            --accent-2:     #f472b6;
+            --green:        #4ade80;
+            --amber:        #fbbf24;
+            --radius:       12px;
+            --max-w:        1080px;
         }
-    </script>
+
+        /* ======== RESET ======== */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.65;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+        img, video { display: block; max-width: 100%; }
+        a { color: var(--primary-b); text-decoration: none; transition: color .2s; }
+        a:hover { color: var(--accent); }
+        ::selection { background: rgba(99,102,241,.3); }
+        .mono { font-family: 'JetBrains Mono', ui-monospace, monospace; }
+        .wrap { max-width: var(--max-w); margin: 0 auto; padding: 0 28px; }
+
+        /* ======== SCROLLBAR ======== */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg); }
+        ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 99px; }
+        ::-webkit-scrollbar-thumb:hover { background: #3a3a66; }
+
+        /* ======== UTILITY ======== */
+        .glass {
+            background: rgba(19,19,42,.6);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(99,102,241,.1);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, var(--primary-b), var(--accent), var(--accent-2));
+            -webkit-background-clip: text; background-clip: text;
+            color: transparent;
+        }
+        .section-label {
+            display: inline-flex; align-items: center; gap: 8px;
+            font-size: 12px; font-weight: 600; letter-spacing: .14em;
+            text-transform: uppercase; color: var(--primary-b); margin-bottom: 14px;
+        }
+        .section-label .hash { color: var(--text-faint); }
+
+        /* ======== SCROLL REVEAL ======== */
+        .reveal {
+            opacity: 0; transform: translateY(32px);
+            transition: opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1);
+        }
+        .reveal.visible { opacity: 1; transform: none; }
+        .reveal-d1 { transition-delay: .08s; }
+        .reveal-d2 { transition-delay: .16s; }
+        .reveal-d3 { transition-delay: .24s; }
+        .reveal-d4 { transition-delay: .32s; }
+
+        /* ======== HEADER / NAV ======== */
+        header {
+            position: sticky; top: 0; z-index: 50;
+            background: rgba(9,9,15,.78);
+            backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--border-soft);
+            transition: box-shadow .3s;
+        }
+        header.scrolled { box-shadow: 0 4px 32px rgba(0,0,0,.5); }
+        .nav-inner {
+            display: flex; align-items: center; justify-content: space-between;
+            max-width: var(--max-w); margin: 0 auto; padding: 14px 28px;
+        }
+        .brand {
+            font-weight: 800; font-size: 17px; color: var(--text);
+            letter-spacing: -.02em; display: flex; align-items: center; gap: 8px;
+        }
+        .brand-dot { color: var(--primary-b); }
+        .brand-icon {
+            width: 32px; height: 32px; border-radius: 8px; display: flex;
+            align-items: center; justify-content: center;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            font-size: 16px; color: #fff;
+        }
+        .nav-links { display: flex; align-items: center; gap: 28px; }
+        .nav-links a {
+            color: var(--text-dim); font-size: 14px; font-weight: 500;
+            position: relative; transition: color .2s;
+        }
+        .nav-links a:hover { color: var(--text); }
+        .nav-links a::after {
+            content: ""; position: absolute; left: 0; bottom: -6px;
+            height: 2px; width: 0;
+            background: linear-gradient(90deg, var(--primary-b), var(--accent));
+            transition: width .3s;
+        }
+        .nav-links a:hover::after { width: 100%; }
+        .nav-cta {
+            display: inline-flex; align-items: center; gap: 6px;
+            padding: 8px 16px; border-radius: var(--radius);
+            border: 1px solid var(--border); color: var(--text) !important;
+            font-weight: 600; font-size: 13px; transition: all .2s;
+        }
+        .nav-cta:hover { border-color: var(--primary); background: rgba(99,102,241,.08); color: var(--text) !important; }
+        .hamburger { display: none; background: none; border: none; color: var(--text); cursor: pointer; padding: 6px; }
+        .hamburger svg { width: 24px; height: 24px; }
+
+        /* ========================================================
+           SECTION 1   HERO SHOWREEL
+           Guide says: 60–90s annotated video, best footage first,
+           autoplay-muted or one-click play. Most striking footage
+           in first 5–10 seconds.
+           ======================================================== */
+        .hero {
+            position: relative; padding: 80px 0 72px;
+            border-bottom: 1px solid var(--border-soft);
+            overflow: hidden;
+        }
+        .hero::before {
+            content: ""; position: absolute; top: -40%; right: -20%; width: 60%; height: 120%;
+            background: radial-gradient(ellipse, rgba(99,102,241,.12) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .hero-content { position: relative; z-index: 1; }
+        .availability {
+            display: inline-flex; align-items: center; gap: 8px;
+            font-size: 13px; color: var(--text-dim); margin-bottom: 24px;
+            padding: 6px 14px 6px 10px; border: 1px solid var(--border);
+            border-radius: 999px; background: rgba(19,19,42,.5);
+        }
+        .pulse-dot {
+            width: 8px; height: 8px; border-radius: 50%;
+            background: var(--green);
+            box-shadow: 0 0 0 0 rgba(74,222,128,.5);
+            animation: pulse-ring 2s infinite;
+        }
+        @keyframes pulse-ring {
+            70% { box-shadow: 0 0 0 10px rgba(74,222,128,0); }
+            100% { box-shadow: 0 0 0 0 rgba(74,222,128,0); }
+        }
+        .hero h1 {
+            font-size: clamp(36px, 6vw, 56px); font-weight: 900;
+            line-height: 1.05; letter-spacing: -.04em; margin-bottom: 14px;
+        }
+        .hero .subtitle {
+            font-size: clamp(16px, 2.5vw, 20px); font-weight: 500;
+            color: var(--text-dim); margin-bottom: 20px;
+        }
+        .hero .subtitle .sep { color: var(--text-faint); margin: 0 10px; }
+        .hero .bio-short {
+            color: var(--text-dim); font-size: 17px; max-width: 60ch;
+            margin-bottom: 32px; line-height: 1.7;
+        }
+        .hero .bio-short strong { color: var(--text); font-weight: 600; }
+        .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 48px; }
+
+        /* Showreel container */
+        .showreel-wrap {
+            position: relative; border-radius: 16px; overflow: hidden;
+            border: 1px solid var(--border);
+            box-shadow: 0 8px 48px rgba(99,102,241,.12), 0 0 0 1px rgba(99,102,241,.06);
+            aspect-ratio: 16/9; background: #000;
+        }
+        .showreel-wrap video { width: 100%; height: 100%; object-fit: cover; }
+        .showreel-overlay {
+            position: absolute; inset: 0; display: flex; align-items: flex-end;
+            padding: 24px; pointer-events: none;
+            background: linear-gradient(to top, rgba(0,0,0,.6) 0%, transparent 50%);
+        }
+        .showreel-badge {
+            pointer-events: auto; display: inline-flex; align-items: center; gap: 6px;
+            padding: 6px 14px; border-radius: 8px;
+            background: rgba(0,0,0,.6); backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,.1);
+            font-size: 12px; font-weight: 600; color: var(--accent);
+        }
+        .showreel-badge svg { width: 14px; height: 14px; }
+
+        /* ======== BUTTONS ======== */
+        .btn {
+            display: inline-flex; align-items: center; gap: 8px;
+            height: 46px; padding: 0 22px; border-radius: var(--radius);
+            font-size: 14px; font-weight: 600; cursor: pointer;
+            border: 1px solid var(--border); transition: all .2s;
+            text-decoration: none !important;
+        }
+        .btn svg { width: 16px; height: 16px; flex-shrink: 0; }
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), #7c3aed);
+            color: #fff; border-color: transparent;
+            box-shadow: 0 4px 20px rgba(99,102,241,.35);
+        }
+        .btn-primary:hover { box-shadow: 0 6px 28px rgba(99,102,241,.5); transform: translateY(-1px); color: #fff; }
+        .btn-ghost { background: transparent; color: var(--text); }
+        .btn-ghost:hover { border-color: var(--primary); background: rgba(99,102,241,.06); color: var(--text); }
+
+        /* ========================================================
+           SECTION 2   PROJECT CASE STUDIES
+           Guide says: 5–8 projects, each with GIF/thumbnail,
+           "My role" line, the problem solved, playable/repo link.
+           Best project first.
+           ======================================================== */
+        .projects { padding: 80px 0; border-bottom: 1px solid var(--border-soft); }
+        .projects-grid { display: grid; gap: 32px; }
+
+        .project-card {
+            background: var(--bg-raised); border: 1px solid var(--border);
+            border-radius: 16px; overflow: hidden; transition: border-color .3s, box-shadow .3s;
+        }
+        .project-card:hover {
+            border-color: rgba(99,102,241,.4);
+            box-shadow: 0 0 0 1px rgba(99,102,241,.15), 0 16px 48px -12px rgba(99,102,241,.2);
+        }
+
+        /* Featured (first) project   full-width landscape layout */
+        .project-card.featured .project-inner { display: grid; grid-template-columns: 1fr 1fr; }
+        .project-card.featured .project-media { aspect-ratio: auto; min-height: 360px; }
+
+        /* Portrait video layout   side-by-side with narrow video column */
+        .project-card.portrait .project-inner {
+            display: grid; grid-template-columns: 280px 1fr; gap: 0;
+        }
+        .project-card.portrait .project-media {
+            aspect-ratio: 9/16; background: #050510;
+        }
+        .project-card.portrait .project-media video,
+        .project-card.portrait .project-media img {
+            object-fit: contain;
+        }
+        /* Portrait mirrored   video on right */
+        .project-card.portrait.mirrored .project-inner {
+            grid-template-columns: 1fr 280px;
+        }
+        .project-card.portrait.mirrored .project-media { order: 2; }
+        .project-card.portrait.mirrored .project-body { order: 1; }
+
+        .project-media {
+            position: relative; aspect-ratio: 16/9; background: #000; overflow: hidden;
+        }
+        .project-media img, .project-media video {
+            width: 100%; height: 100%; object-fit: cover;
+            transition: transform .4s ease;
+        }
+        .project-card:hover .project-media img,
+        .project-card:hover .project-media video { transform: scale(1.03); }
+        .project-media .play-overlay {
+            position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+            background: rgba(0,0,0,.3); opacity: 0; transition: opacity .3s; cursor: pointer;
+        }
+        .project-card:hover .play-overlay { opacity: 1; }
+        .play-circle {
+            width: 56px; height: 56px; border-radius: 50%;
+            background: rgba(99,102,241,.9); display: flex; align-items: center; justify-content: center;
+            transition: transform .2s;
+        }
+        .play-circle:hover { transform: scale(1.1); }
+        .play-circle svg { width: 22px; height: 22px; fill: #fff; margin-left: 3px; }
+
+        .project-badges {
+            position: absolute; top: 14px; left: 14px;
+            display: flex; flex-wrap: wrap; gap: 6px; z-index: 2;
+        }
+
+        .project-body { padding: 28px 30px 30px; }
+        .project-card.featured .project-body { display: flex; flex-direction: column; justify-content: center; }
+        .project-card.portrait .project-body { display: flex; flex-direction: column; justify-content: center; }
+
+        .project-head { margin-bottom: 6px; }
+        .project-title { font-size: 22px; font-weight: 800; letter-spacing: -.02em; }
+        .project-tech { font-size: 12px; color: var(--text-faint); margin-bottom: 12px; }
+
+        /* ★ "My role" line   the guide's #1 recommendation */
+        .my-role {
+            display: flex; align-items: flex-start; gap: 10px;
+            padding: 12px 16px; border-radius: 10px;
+            background: rgba(99,102,241,.06); border: 1px solid rgba(99,102,241,.15);
+            margin-bottom: 16px; font-size: 14px; color: var(--text);
+        }
+        .my-role svg { width: 16px; height: 16px; flex-shrink: 0; margin-top: 3px; stroke: var(--primary-b); }
+        .my-role strong { color: var(--primary-b); font-weight: 700; }
+
+        .project-pitch { color: var(--text-dim); font-size: 15px; margin-bottom: 16px; line-height: 1.65; }
+
+        /* Contributions */
+        .contrib-label {
+            font-size: 11px; font-weight: 600; color: var(--text-faint);
+            text-transform: uppercase; letter-spacing: .1em; margin-bottom: 10px;
+        }
+        .contrib { list-style: none; margin-bottom: 18px; }
+        .contrib li {
+            position: relative; padding-left: 20px; color: var(--text-dim);
+            font-size: 14px; margin-bottom: 8px; line-height: 1.6;
+        }
+        .contrib li::before {
+            content: ""; position: absolute; left: 4px; top: 10px;
+            width: 6px; height: 6px;
+            border-right: 1.5px solid var(--primary-b); border-bottom: 1.5px solid var(--primary-b);
+            transform: rotate(-45deg);
+        }
+        .contrib li b { color: #fff; font-weight: 600; }
+
+        /* Outcome callout */
+        .outcome {
+            display: flex; align-items: flex-start; gap: 10px;
+            padding: 12px 16px; border-radius: 10px;
+            background: rgba(74,222,128,.06); border: 1px solid rgba(74,222,128,.18);
+            margin-bottom: 18px; font-size: 14px; color: var(--text-dim);
+        }
+        .outcome svg { width: 16px; height: 16px; flex-shrink: 0; margin-top: 2px; stroke: var(--green); }
+        .outcome b { color: #fff; }
+
+        /* Project links row */
+        .project-links { display: flex; flex-wrap: wrap; gap: 8px; }
+        .plink {
+            display: inline-flex; align-items: center; gap: 6px;
+            font-size: 13px; font-weight: 600; padding: 9px 16px;
+            border-radius: 10px; border: 1px solid var(--border);
+            color: var(--text); transition: all .2s;
+        }
+        .plink:hover { border-color: var(--primary); background: rgba(99,102,241,.06); color: var(--text); }
+        .plink.primary-link {
+            background: linear-gradient(135deg, var(--primary), #7c3aed);
+            color: #fff; border-color: transparent;
+        }
+        .plink.primary-link:hover { box-shadow: 0 4px 16px rgba(99,102,241,.4); color: #fff; }
+        .plink svg { width: 14px; height: 14px; }
+
+        /* Badges */
+        .badge {
+            font-size: 11px; font-weight: 700; padding: 5px 11px;
+            border-radius: 6px; text-transform: uppercase; letter-spacing: .06em;
+            background: rgba(9, 9, 15, 0.92);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+        }
+        .badge-green { background: rgba(8, 32, 18, 0.95); color: #4ade80; border: 1px solid rgba(74,222,128,.6); }
+        .badge-amber { background: rgba(35, 25, 8, 0.95); color: #fbbf24; border: 1px solid rgba(251,191,36,.6); }
+        .badge-blue { background: rgba(8, 28, 40, 0.95); color: #22d3ee; border: 1px solid rgba(34,211,238,.6); }
+        .badge-neutral { background: rgba(18, 18, 30, 0.95); color: #e5e7eb; border: 1px solid rgba(255,255,255,.25); }
+
+        /* Multi-screenshot 3-phone horizontal row container */
+        .project-media.multi-screenshot {
+            aspect-ratio: 16/9;
+            background: radial-gradient(circle at center, #14142b 0%, #06060e 100%);
+            display: flex; align-items: center; justify-content: center;
+            padding: 16px 20px; overflow: hidden; position: relative;
+        }
+        .screenshot-row {
+            display: flex; gap: 14px; height: 100%; width: 100%;
+            align-items: center; justify-content: center;
+        }
+        .screenshot-row img {
+            height: auto; width: auto; max-width: 100%;
+            object-fit: contain; border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+            transition: transform .3s ease;
+        }
+        .project-card:hover .screenshot-row img {
+            transform: translateY(-4px) scale(1.03);
+        }
+
+        /* ========================================================
+           SECTION 3   SKILLS & ENGINES
+           Guide says: engines, languages, tools
+           ======================================================== */
+        .skills { padding: 80px 0; border-bottom: 1px solid var(--border-soft); }
+        .skills-grid { display: grid; gap: 0; }
+        .skill-row {
+            display: grid; grid-template-columns: 180px 1fr; gap: 24px;
+            padding: 18px 0; border-top: 1px solid var(--border-soft);
+        }
+        .skill-row:last-child { border-bottom: 1px solid var(--border-soft); }
+        .skill-row .label {
+            color: var(--text-dim); font-size: 13px; font-weight: 600;
+            text-transform: uppercase; letter-spacing: .06em;
+        }
+        .skill-row .items { color: var(--text); font-size: 15px; }
+        .skill-row .items .sep { color: var(--text-faint); margin: 0 6px; }
+
+        /* Capability cards below */
+        .cap-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 40px; }
+        .cap-card {
+            padding: 24px; border-radius: var(--radius);
+            background: var(--bg-raised); border: 1px solid var(--border);
+            transition: border-color .3s, transform .3s;
+        }
+        .cap-card:hover { border-color: rgba(99,102,241,.4); transform: translateY(-4px); }
+        .cap-icon { font-size: 28px; margin-bottom: 12px; }
+        .cap-card h4 { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+        .cap-card p { font-size: 13px; color: var(--text-dim); line-height: 1.55; }
+
+        /* ========================================================
+           SECTION 5   BIO / ABOUT
+           Guide says: 2–3 sentences: who you are, your focus, what you want
+           ======================================================== */
+        .about { padding: 80px 0; border-bottom: 1px solid var(--border-soft); }
+        .about-grid {
+            display: grid; grid-template-columns: 280px 1fr; gap: 48px;
+            align-items: start;
+        }
+        .about-avatar {
+            position: relative; border-radius: 16px; overflow: hidden;
+            border: 1px solid var(--border); aspect-ratio: 1;
+        }
+        .about-avatar img { width: 100%; height: 100%; object-fit: cover; }
+        .about-avatar::after {
+            content: ""; position: absolute; inset: 0;
+            background: linear-gradient(to top, rgba(9,9,15,.5), transparent 40%);
+        }
+        .about-text p { color: var(--text-dim); font-size: 16px; margin-bottom: 16px; line-height: 1.7; }
+        .about-text p strong { color: var(--text); font-weight: 600; }
+        .about-facts { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 24px; }
+        .fact {
+            padding: 16px 18px; background: var(--bg-raised); border: 1px solid var(--border);
+            border-radius: 10px; transition: border-color .2s;
+        }
+        .fact:hover { border-color: rgba(99,102,241,.3); }
+        .fact .k { font-size: 11px; color: var(--text-faint); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 4px; }
+        .fact .v { font-size: 14px; color: var(--text); font-weight: 600; }
+
+        /* ========================================================
+           EXPERIENCE & EDUCATION
+           ======================================================== */
+        .experience { padding: 80px 0; border-bottom: 1px solid var(--border-soft); }
+        .timeline { position: relative; padding-left: 28px; }
+        .timeline::before {
+            content: ""; position: absolute; left: 5px; top: 8px; bottom: 8px;
+            width: 1px; background: linear-gradient(to bottom, var(--primary), var(--accent), transparent);
+        }
+        .tl-item { position: relative; padding-bottom: 36px; }
+        .tl-item:last-child { padding-bottom: 0; }
+        .tl-item::before {
+            content: ""; position: absolute; left: -28px; top: 6px;
+            width: 11px; height: 11px; border-radius: 50%;
+            background: var(--bg); border: 2px solid var(--primary);
+        }
+        .tl-item:nth-child(2)::before { border-color: var(--accent); }
+        .tl-when { font-size: 13px; color: var(--primary-b); font-weight: 600; margin-bottom: 4px; }
+        .tl-item:nth-child(2) .tl-when { color: var(--accent); }
+        .tl-title { font-size: 18px; font-weight: 700; margin-bottom: 2px; }
+        .tl-org { font-size: 14px; color: var(--text-dim); margin-bottom: 10px; }
+        .tl-item ul { list-style: none; }
+        .tl-item li {
+            position: relative; padding-left: 16px; color: var(--text-dim);
+            font-size: 14px; margin-bottom: 6px; line-height: 1.6;
+        }
+        .tl-item li::before { content: "·"; position: absolute; left: 4px; color: var(--primary-b); font-weight: 700; }
+        .tl-item li b { color: var(--text); font-weight: 600; }
+
+        /* ========================================================
+           SECTION 6 & 7   CONTACT + PLATFORM LINKS
+           Guide says: clickable email, LinkedIn, itch.io, GitHub
+           ======================================================== */
+        .contact { padding: 96px 0 80px; text-align: center; position: relative; overflow: hidden; }
+        .contact::before {
+            content: ""; position: absolute; top: -60%; left: 50%; transform: translateX(-50%);
+            width: 600px; height: 600px; border-radius: 50%;
+            background: radial-gradient(circle, rgba(99,102,241,.12), transparent 70%);
+            pointer-events: none;
+        }
+        .contact .section-label { justify-content: center; }
+        .contact h2 {
+            font-size: clamp(26px, 4vw, 36px); font-weight: 800;
+            letter-spacing: -.02em; margin-bottom: 14px; position: relative;
+        }
+        .contact .sub { color: var(--text-dim); font-size: 16px; max-width: 48ch; margin: 0 auto 32px; position: relative; }
+        .contact-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; position: relative; }
+        .social-row { display: flex; justify-content: center; gap: 10px; margin-top: 32px; position: relative; }
+        .social {
+            width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;
+            border: 1px solid var(--border); border-radius: 10px;
+            color: var(--text-dim); transition: all .2s;
+        }
+        .social:hover { border-color: var(--primary); color: var(--text); background: rgba(99,102,241,.06); }
+        .social svg { width: 18px; height: 18px; }
+
+        /* ======== FOOTER ======== */
+        footer { border-top: 1px solid var(--border-soft); padding: 28px 0; }
+        footer .wrap { display: flex; flex-direction: column; gap: 8px; align-items: center; text-align: center; }
+        footer .copy { font-size: 13px; color: var(--text-faint); }
+
+        /* ======== VIDEO MODAL ======== */
+        .modal {
+            position: fixed; inset: 0; z-index: 200; display: none;
+            align-items: center; justify-content: center;
+            background: rgba(0,0,0,.92); padding: 20px;
+        }
+        .modal.open { display: flex; }
+        .modal-box {
+            position: relative; width: 100%; max-width: 920px;
+            aspect-ratio: 16/9; background: #000; border-radius: 14px;
+            overflow: hidden; border: 1px solid var(--border);
+        }
+        .modal-box video { width: 100%; height: 100%; }
+        .modal-close {
+            position: absolute; top: 12px; right: 12px; z-index: 2;
+            width: 38px; height: 38px; display: flex; align-items: center; justify-content: center;
+            border-radius: 50%; background: rgba(0,0,0,.6); backdrop-filter: blur(4px);
+            border: 1px solid rgba(255,255,255,.15); color: #fff; cursor: pointer;
+            transition: background .2s;
+        }
+        .modal-close:hover { background: rgba(99,102,241,.6); }
+        .modal-close svg { width: 18px; height: 18px; }
+
+        /* ======== RESPONSIVE ======== */
+        @media (max-width: 900px) {
+            .project-card.featured .project-inner { grid-template-columns: 1fr; }
+            .project-card.featured .project-media { min-height: auto; aspect-ratio: 16/9; }
+            .project-card.portrait .project-inner { grid-template-columns: 1fr; }
+            .project-card.portrait .project-media { aspect-ratio: auto; max-height: 420px; }
+            .project-card.portrait.mirrored .project-media { order: 0; }
+            .project-card.portrait.mirrored .project-body { order: 0; }
+            .about-grid { grid-template-columns: 1fr; }
+            .about-avatar { max-width: 240px; }
+            .cap-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 640px) {
+            .hero { padding: 56px 0 48px; }
+            .projects, .skills, .about, .experience { padding: 56px 0; }
+            .skill-row { grid-template-columns: 1fr; gap: 4px; }
+            .cap-grid { grid-template-columns: 1fr; }
+            .about-facts { grid-template-columns: 1fr; }
+            .nav-links .hide-sm { display: none; }
+            .hero-actions { flex-direction: column; }
+            .hero-actions .btn { width: 100%; justify-content: center; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .reveal { opacity: 1; transform: none; transition: none; }
+            .pulse-dot { animation: none; }
+            html { scroll-behavior: auto; }
+        }
+    </style>
 </head>
+<body>
 
-<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-white overflow-x-hidden">
-    <div class="relative flex min-h-screen w-full flex-col group/design-root">
-        <div
-            class="w-full border-b border-solid border-[#232348] bg-background-dark/95 backdrop-blur-sm sticky top-0 z-50">
-            <div class="px-4 md:px-10 lg:px-40 flex justify-center py-3">
-                <div class="flex max-w-[960px] flex-1 items-center justify-between">
-                    <div class="flex items-center gap-3 text-white">
-                        <div class="flex h-8 w-8 items-center justify-center rounded bg-primary text-white">
-                            <span class="material-symbols-outlined text-xl">terminal</span>
-                        </div>
-                        <h2 class="text-white text-lg font-bold tracking-tight">RAGY NOUR</h2>
-                    </div>
-                    <div class="flex items-center gap-8">
-                        <nav class="hidden md:flex items-center gap-6">
-                            <a class="text-gray-300 hover:text-primary text-sm font-bold uppercase tracking-widest transition-colors"
-                                href="#projects">Projects</a>
-                            <a class="text-gray-300 hover:text-primary text-sm font-bold uppercase tracking-widest transition-colors"
-                                href="/resume.pdf">Resume</a>
-                            <a class="text-gray-300 hover:text-primary text-sm font-bold uppercase tracking-widest transition-colors"
-                                href="mailto:ragyhassan22@gmail.com">Contact</a>
-                            <a aria-label="GitHub Profile" class="text-gray-300 hover:text-white transition-colors ml-2"
-                                href="https://github.com/RgHNr" target="_blank">
-                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                                    <path
-                                        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z">
-                                    </path>
-                                </svg>
-                            </a>
-                        </nav>
-                        <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border-2 border-[#232348]"
-                            data-alt="Profile avatar of the developer in pixel art style"
-                            style='background-image: url("./assets/images/fused_avatar.png");'>
-                        </div>
+    <!-- ===== HEADER / NAV ===== -->
+    <header id="main-header">
+        <div class="nav-inner">
+            <a href="#top" class="brand">
+                <span class="brand-icon">🎮</span>
+                Ragy<span class="brand-dot">.</span>Nour
+            </a>
+            <nav class="nav-links">
+                <a href="#showreel" class="hide-sm">Showreel</a>
+                <a href="#work" class="hide-sm">Projects</a>
+                <a href="#about" class="hide-sm">About</a>
+                <a href="#contact" class="hide-sm">Contact</a>
+                <a href="resume.pdf" class="nav-cta" id="nav-resume">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px"><path d="M14 3v5h5M19 21H5V3h9l5 5z"/></svg>
+                    Resume
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="top">
+
+        <!-- ════════════════════════════════════════════════════
+             SECTION 1   HERO + SHOWREEL
+             Guide: "60–90s annotated gameplay showreel, best
+             footage first, autoplay-muted or one-click play."
+             ════════════════════════════════════════════════════ -->
+        <section class="hero wrap" id="showreel">
+            <div class="hero-content">
+                <div class="reveal availability">
+                    <span class="pulse-dot"></span>
+                    Available for hire · Giza, Egypt
+                </div>
+
+                <h1 class="reveal reveal-d1">
+                    Hi, I'm <span class="gradient-text">Ragy Nour</span>
+                </h1>
+
+                <div class="reveal reveal-d2 subtitle">
+                    Unity Game Developer<span class="sep">·</span>Mobile &amp; Performance Specialist
+                </div>
+
+                <p class="reveal reveal-d3 bio-short">
+                    <strong>Performance-focused Unity Developer</strong> with an Electronics Engineering background.
+                    I build scalable mobile architectures, squeeze frames out of low-end hardware, and ship titles
+                    end-to-end   from GPU crowd rendering to Remote Config live-ops.
+                </p>
+
+                <div class="reveal reveal-d3 hero-actions">
+                    <a href="#work" class="btn btn-primary" id="hero-cta-work">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                        View My Work
+                    </a>
+                    <a href="resume.pdf" class="btn btn-ghost" id="hero-cta-resume">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3v5h5M19 21H5V3h9l5 5z"/></svg>
+                        Download Resume
+                    </a>
+                    <a href="https://github.com/RgHNr" target="_blank" rel="noopener" class="btn btn-ghost" id="hero-cta-github">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58v-2.23c-3.34.72-4.04-1.42-4.04-1.42-.55-1.39-1.33-1.76-1.33-1.76-1.09-.74.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5.99.1-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.66.25 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.8 5.62-5.48 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.22.7.83.58A12 12 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                        GitHub
+                    </a>
+                </div>
+
+                <!-- ★ SHOWREEL   the guide's #1 most important element -->
+                <div class="reveal reveal-d4 showreel-wrap" id="showreel-player">
+                    <video autoplay muted loop playsinline poster="./assets/images/football3.png" id="showreel-video">
+                        <source src="./assets/videos/football.mp4" type="video/mp4">
+                    </video>
+                    <div class="showreel-overlay">
+                        <span class="showreel-badge">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                            Gameplay Showreel   GPU Instancing · FSM AI · IK Animation · Manager Mode
+                        </span>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="layout-container flex grow flex-col">
-            <div class="px-4 md:px-10 lg:px-40 flex flex-1 justify-center py-5">
-                <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
-                    <div class="@container mb-12">
-                        <div class="flex flex-col gap-6 py-10 @[480px]:gap-8 @[864px]:flex-row items-center">
-                            <div class="flex flex-col gap-6 flex-1 @[864px]:pr-10">
-                                <div class="flex flex-col gap-2 text-left">
-                                    <div
-                                        class="inline-flex items-center gap-2 text-primary font-bold uppercase tracking-widest text-xs mb-2">
-                                        <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-                                        Available for hire
-                                    </div>
-                                    <h1
-                                        class="text-white text-5xl md:text-6xl font-black leading-none tracking-[-0.033em] uppercase">
-                                        Ragy Nour
-                                    </h1>
-                                    <h2
-                                        class="text-transparent bg-clip-text bg-gradient-to-r from-white to-[#555577] text-2xl md:text-4xl font-bold uppercase tracking-tight mt-1">
-                                        Game Developer
-                                    </h2>
-                                    <p class="text-gray-400 text-lg font-normal leading-relaxed max-w-lg mt-4">
-                                        Performance-focused Unity Developer with a background in Electronics
-                                        Engineering. Specialized in mobile game architecture, SOLID principles, and
-                                        GPU/CPU optimization (Instancing, Shaders). Experience shipping full-lifecycle
-                                        projects to Google Play with a focus on clean, scalable code and
-                                        high-performance gameplay systems.
-                                    </p>
-                                </div>
-                                <div class="flex flex-wrap gap-4 mt-2">
-                                    <a class="flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-8 bg-primary hover:bg-blue-700 text-white text-base font-bold tracking-wide transition-all hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(15,15,240,0.3)]"
-                                        href="mailto:ragyhassan22@gmail.com">
-                                        <span class="truncate uppercase">Contact Me</span>
-                                    </a>
-                                    <a class="flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 border border-gray-500 hover:border-white hover:bg-white/5 text-white text-base font-bold tracking-wide transition-all gap-2"
-                                        href="/resume.pdf">
-                                        <span class="material-symbols-outlined text-lg">download</span>
-                                        <span class="truncate uppercase">Resume</span>
-                                    </a>
-                                    <a class="flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-8 border border-[#232348] hover:border-primary text-white hover:text-primary bg-transparent text-base font-bold tracking-wide transition-all"
-                                        href="#projects">
-                                        <span class="truncate uppercase">View Works</span>
-                                    </a>
-                                    <a aria-label="GitHub Profile"
-                                        class="flex items-center justify-center w-12 h-12 rounded-lg border border-[#232348] hover:bg-[#232348] text-white hover:text-primary transition-colors hover:scale-105 active:scale-95"
-                                        href="https://github.com/RgHNr/" target="_blank">
-                                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                                            <path
-                                                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z">
-                                            </path>
-                                        </svg>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="w-full @[864px]:w-1/2 mt-8 @[864px]:mt-0 relative group">
-                                <div
-                                    class="absolute -inset-1 bg-gradient-to-r from-primary to-purple-600 rounded-lg blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200">
-                                </div>
-                                <div class="relative w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg border border-[#232348] shadow-2xl"
-                                    data-alt="Abstract 3D rendering of a game level environment with neon lights"
-                                    style='background-image:  url("./assets/images/fused_hero.png");'>
-                                    <div
-                                        class="absolute bottom-4 left-4 bg-black/70 backdrop-blur-md px-3 py-1 rounded text-xs font-mono text-primary border border-primary/30">
-                                        System.Init(TRUE);
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mb-16">
-                        <div class="flex items-center gap-4 mb-6">
-                            <span class="material-symbols-outlined text-primary">memory</span>
-                            <h3 class="text-white text-sm font-bold uppercase tracking-widest">Technical Arsenal</h3>
-                            <div class="h-px bg-[#232348] flex-1"></div>
-                        </div>
-                        <div class="flex gap-3 flex-wrap">
-                            <div
-                                class="group flex h-10 shrink-0 items-center justify-center gap-x-2 rounded bg-[#1a1a2e] border border-[#232348] hover:border-primary/50 hover:bg-[#1a1a2e]/80 pl-4 pr-4 transition-all cursor-default">
-                                <span
-                                    class="material-symbols-outlined text-base text-gray-400 group-hover:text-white">view_in_ar</span>
-                                <p class="text-gray-300 group-hover:text-white text-sm font-medium">Unity (Optimization,
-                                    UI)</p>
-                            </div>
-                            <div
-                                class="group flex h-10 shrink-0 items-center justify-center gap-x-2 rounded bg-[#1a1a2e] border border-[#232348] hover:border-primary/50 hover:bg-[#1a1a2e]/80 pl-4 pr-4 transition-all cursor-default">
-                                <span
-                                    class="material-symbols-outlined text-base text-gray-400 group-hover:text-white">code</span>
-                                <p class="text-gray-300 group-hover:text-white text-sm font-medium">C# (SOLID, Patterns)
-                                </p>
-                            </div>
-                            <div
-                                class="group flex h-10 shrink-0 items-center justify-center gap-x-2 rounded bg-[#1a1a2e] border border-[#232348] hover:border-primary/50 hover:bg-[#1a1a2e]/80 pl-4 pr-4 transition-all cursor-default">
-                                <span
-                                    class="material-symbols-outlined text-base text-gray-400 group-hover:text-white">code</span>
-                                <p class="text-gray-300 group-hover:text-white text-sm font-medium">HLSL & Compute
-                                    Shaders</p>
-                            </div>
-                            <div
-                                class="group flex h-10 shrink-0 items-center justify-center gap-x-2 rounded bg-[#1a1a2e] border border-[#232348] hover:border-primary/50 hover:bg-[#1a1a2e]/80 pl-4 pr-4 transition-all cursor-default">
-                                <span
-                                    class="material-symbols-outlined text-base text-gray-400 group-hover:text-white">smartphone</span>
-                                <p class="text-gray-300 group-hover:text-white text-sm font-medium">Android & ASO</p>
-                            </div>
-                            <div
-                                class="group flex h-10 shrink-0 items-center justify-center gap-x-2 rounded bg-[#1a1a2e] border border-[#232348] hover:border-primary/50 hover:bg-[#1a1a2e]/80 pl-4 pr-4 transition-all cursor-default">
-                                <span
-                                    class="material-symbols-outlined text-base text-gray-400 group-hover:text-white">api</span>
-                                <p class="text-gray-300 group-hover:text-white text-sm font-medium">Blender 3D</p>
-                            </div>
-                            <div
-                                class="group flex h-10 shrink-0 items-center justify-center gap-x-2 rounded bg-[#1a1a2e] border border-[#232348] hover:border-primary/50 hover:bg-[#1a1a2e]/80 pl-4 pr-4 transition-all cursor-default">
-                                <span
-                                    class="material-symbols-outlined text-base text-gray-400 group-hover:text-white">hub</span>
-                                <p class="text-gray-300 group-hover:text-white text-sm font-medium">Git & Firebase</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flex flex-col gap-2 pb-6 pt-5" id="projects">
-                        <h2 class="text-white text-3xl font-bold leading-tight tracking-[-0.015em]">Selected Projects
-                        </h2>
-                        <p class="text-gray-400">A collection of deployed games and technical prototypes.</p>
-                    </div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pb-16">
-                        <div
-                            class="group flex flex-col gap-4 rounded-xl bg-[#15152a] border border-[#232348] p-4 transition-all hover:border-primary/50 hover:shadow-[0_0_20px_rgba(15,15,240,0.15)] hover:-translate-y-1">
-                            <div class="relative w-full aspect-video overflow-hidden rounded-lg bg-[#0f0f1a]">
-                                <video
-                                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                                    autoplay muted loop playsinline poster="./assets/images/football3.png">
-                                    <source src="./assets/videos/football.mp4" type="video/mp4">
-                                </video>
-                                <div
-                                    class="absolute top-2 right-2 bg-black/60 backdrop-blur text-white text-[10px] font-bold px-2 py-1 rounded border border-white/10 uppercase tracking-wider">
-                                    Released
-                                </div>
-                            </div>
-                            <div class="flex flex-col gap-3 flex-1">
-                                <div class="flex justify-between items-start">
-                                    <h3
-                                        class="text-white text-xl font-bold leading-tight group-hover:text-primary transition-colors">
-                                        Football Strike Mobile</h3>
-                                    <span class="material-symbols-outlined text-gray-500">sports_soccer</span>
-                                </div>
-                                <p class="text-gray-400 text-sm leading-relaxed line-clamp-3">
-                                    Engineered a GPU-based crowd rendering system using Instancing to render thousands
-                                    of fans with minimal draw calls. Programmed physics-aware AI for goalkeepers and
-                                    utilized Procedural Animation (IK) for precise interactions.
-                                </p>
-                                <div class="flex flex-wrap gap-2 mt-auto pt-2">
-                                    <span
-                                        class="px-2 py-1 rounded bg-[#232348] text-primary text-xs font-bold font-mono">Unity</span>
-                                    <span
-                                        class="px-2 py-1 rounded bg-[#232348] text-gray-300 text-xs font-medium">C#</span>
-                                    <span class="px-2 py-1 rounded bg-[#232348] text-gray-300 text-xs font-medium">3rd
-                                        Person</span>
-                                    <span
-                                        class="px-2 py-1 rounded bg-[#232348] text-gray-300 text-xs font-medium">Sport</span>
-                                </div>
-                                <div class="flex gap-3 mt-2 border-t border-[#232348] pt-4">
-                                    <button
-                                        class="flex-1 bg-primary hover:bg-blue-600 text-white text-sm font-bold py-2 rounded transition-colors flex items-center justify-center gap-2"
-                                        onclick="openVideoModal('./assets/videos/football.mp4')">
-                                        <span class="material-symbols-outlined text-lg">play_arrow</span> Play Demo
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <div
-                            class="group flex flex-col gap-4 rounded-xl bg-[#15152a] border border-[#232348] p-4 transition-all hover:border-primary/50 hover:shadow-[0_0_20px_rgba(15,15,240,0.15)] hover:-translate-y-1">
-                            <div class="relative w-full aspect-video overflow-hidden rounded-lg bg-[#0f0f1a]">
-                                <div class="w-full h-full bg-center bg-no-repeat bg-cover transition-transform duration-700 group-hover:scale-105"
-                                    data-alt="Interface of a dictionary app showing search results and definitions"
-                                    style='background-image: url("./assets/images/dictionary1.png");'>
-                                </div>
-                            </div>
-                            <div class="flex flex-col gap-3 flex-1">
-                                <div class="flex justify-between items-start">
-                                    <h3
-                                        class="text-white text-xl font-bold leading-tight group-hover:text-primary transition-colors">
-                                        Tri-directional Dictionary</h3>
-                                    <span class="material-symbols-outlined text-gray-500">translate</span>
-                                </div>
-                                <p class="text-gray-400 text-sm leading-relaxed line-clamp-3">
-                                    Engineered a memory-efficient audio system using Lazy Loading to reduce runtime
-                                    memory. Developed a flexible data structure to parse raw CSV datasets for
-                                    bidirectional search, supporting three languages with offline caching.
-                                </p>
-                                <div class="flex flex-wrap gap-2 mt-auto pt-2">
-                                    <span
-                                        class="px-2 py-1 rounded bg-[#232348] text-[#61dafb] text-xs font-bold font-mono">Android</span>
-                                    <span
-                                        class="px-2 py-1 rounded bg-[#232348] text-gray-300 text-xs font-medium">Utility</span>
-                                    <span
-                                        class="px-2 py-1 rounded bg-[#232348] text-gray-300 text-xs font-medium">Unity</span>
-                                    <span
-                                        class="px-2 py-1 rounded bg-[#232348] text-gray-300 text-xs font-medium">C#</span>
-                                    <span
-                                        class="px-2 py-1 rounded bg-[#232348] text-gray-300 text-xs font-medium">Dictionary</span>
+        </section>
 
-                                </div>
-                                <div class="flex gap-3 mt-2 border-t border-[#232348] pt-4">
-                                    <a href="https://play.google.com/store/apps/details?id=com.Squaresumgames.Nobiina"
-                                        target="_blank"
-                                        class="flex-1 border border-[#232348] hover:border-white text-white text-sm font-bold py-2 rounded transition-colors flex items-center justify-center gap-2">
-                                        <span class="material-symbols-outlined text-lg">shop</span> Google Play
-                                    </a>
-                                </div>
+        <!-- ════════════════════════════════════════════════════
+             SECTION 2   PROJECT CASE STUDIES
+             Guide: "5–8 projects, each with GIF/thumbnail,
+             'My role,' the problem solved, and a playable/repo link."
+             Lead with strongest project.
+             ════════════════════════════════════════════════════ -->
+        <section class="projects wrap" id="work">
+            <div class="reveal section-label mono"><span class="hash">#</span> selected work</div>
+            <h2 class="reveal" style="font-size:clamp(26px,4vw,34px);font-weight:800;letter-spacing:-.02em;margin-bottom:36px;">
+                Project Case Studies
+            </h2>
+
+            <div class="projects-grid">
+
+                <!-- ★ PROJECT 1   3rd-Person Football (BEST/FEATURED) -->
+                <article class="reveal project-card featured" id="project-football">
+                    <div class="project-inner">
+                        <div class="project-media">
+                            <video autoplay muted loop playsinline poster="./assets/images/football3.png">
+                                <source src="./assets/videos/football.mp4" type="video/mp4">
+                            </video>
+                            <div class="project-badges">
+                                <span class="badge badge-green">Released</span>
+                                <span class="badge badge-neutral">3rd Person · Mobile</span>
+                            </div>
+                            <div class="play-overlay" onclick="playVid('./assets/videos/football.mp4')">
+                                <div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
                             </div>
                         </div>
-                        <div
-                            class="group flex flex-col gap-4 rounded-xl bg-[#15152a] border border-[#232348] p-4 transition-all hover:border-primary/50 hover:shadow-[0_0_20px_rgba(15,15,240,0.15)] hover:-translate-y-1">
-                            <div class="relative w-full aspect-[9/16] overflow-hidden rounded-lg bg-[#0f0f1a]">
-                                <video
-                                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                                    autoplay muted loop playsinline poster="./assets/images/BlastScreenshot1.png">
-                                    <source src="./assets/videos/blastblocks.mp4" type="video/mp4">
-                                </video>
-                                <div
-                                    class="absolute top-2 right-2 bg-black/60 backdrop-blur text-white text-[10px] font-bold px-2 py-1 rounded border border-white/10 uppercase tracking-wider">
-                                    Open Source
-                                </div>
+                        <div class="project-body">
+                            <div class="project-head">
+                                <h3 class="project-title">3rd-Person Football Mobile</h3>
                             </div>
-                            <div class="flex flex-col gap-3 flex-1">
-                                <div class="flex justify-between items-start">
-                                    <h3
-                                        class="text-white text-xl font-bold leading-tight group-hover:text-primary transition-colors">
-                                        Block Shooter Puzzle</h3>
-                                    <span class="material-symbols-outlined text-gray-500">extension</span>
-                                </div>
-                                <p class="text-gray-400 text-sm leading-relaxed line-clamp-3">
-                                    Developed a robust custom Level Design Tool reducing creation time by 90%.
-                                    Implemented MaterialPropertyBlock for dynamic color changes to prevent memory
-                                    spikes, and decoupled game logic using a modular event-driven architecture.
-                                </p>
-                                <div class="flex flex-wrap gap-2 mt-auto pt-2">
-                                    <span
-                                        class="px-2 py-1 rounded bg-[#232348] text-primary text-xs font-bold font-mono">Unity</span>
-                                    <span
-                                        class="px-2 py-1 rounded bg-[#232348] text-purple-400 text-xs font-bold font-mono">C#</span>
-                                    <span
-                                        class="px-2 py-1 rounded bg-[#232348] text-gray-300 text-xs font-medium">GitHub</span>
-                                </div>
-                                <div class="flex gap-3 mt-2 border-t border-[#232348] pt-4">
-                                    <a href="https://github.com/RgHNr/Block-Blasting"
-                                        class="flex-1 bg-[#24292e] hover:bg-[#2f363d] text-white text-sm font-bold py-2 rounded transition-colors flex items-center justify-center gap-2">
-                                        <span class="material-symbols-outlined text-lg">code</span> View Code
-                                    </a>
-                                    <button
-                                        class="flex-1 bg-primary hover:bg-blue-600 text-white text-sm font-bold py-2 rounded transition-colors flex items-center justify-center gap-2"
-                                        onclick="openVideoModal('./assets/videos/blastblocks.mp4')">
-                                        <span class="material-symbols-outlined text-lg">play_arrow</span> Play Demo
-                                    </button>
-                                </div>
+                            <div class="project-tech mono">Unity · C# · HLSL · Blender</div>
+
+                            <div class="my-role">
+                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                                <span><strong>My role: Solo Indie Developer.</strong> Built every system   GPU crowd rendering, goalkeeper AI, IK animation, manager mode. Art produced in Blender.</span>
+                            </div>
+
+                            <p class="project-pitch">A full football experience optimized for mobile. My focus was rendering thousands of fans without melting low-end GPUs, and building AI that actually <em>feels</em> like a goalkeeper.</p>
+
+                            <div class="contrib-label">What I built</div>
+                            <ul class="contrib">
+                                <li><b>GPU crowd rendering:</b> replaced SkinnedMeshRenderers with <b>GPU Instancing + Animation Texture Baking</b> to draw thousands of fans in minimal draw calls.</li>
+                                <li><b>Physics-aware keeper AI:</b> computes ball-velocity trajectories for intercept states, blended with an FSM for positioning &amp; man-marking.</li>
+                                <li><b>Procedural animation (IK):</b> resolves gameplay/visual discrepancies for precise ball contact during high-speed interactions.</li>
+                                <li><b>Manager Mode data systems:</b> persists lineups, transfer economy, and unlockable content across sessions.</li>
+                            </ul>
+
+                            <div class="project-links">
+                                <a class="plink primary-link" href="javascript:void(0)" onclick="playVid('./assets/videos/football.mp4')">
+                                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                                    Play Demo
+                                </a>
                             </div>
                         </div>
-                        <div
-                            class="group flex flex-col gap-4 rounded-xl bg-[#15152a] border border-[#232348] p-4 transition-all hover:border-primary/50 hover:shadow-[0_0_20px_rgba(15,15,240,0.15)] hover:-translate-y-1">
-                            <div class="relative w-full aspect-[9/16] overflow-hidden rounded-lg bg-[#0f0f1a]">
-                                <video
-                                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                                    autoplay muted loop playsinline poster="./assets/images/slash2.png">
-                                    <source src="./assets/videos/dash.mp4" type="video/mp4">
-                                </video>
-                                <div
-                                    class="absolute top-2 right-2 bg-yellow-600/80 backdrop-blur text-white text-[10px] font-bold px-2 py-1 rounded border border-white/10 uppercase tracking-wider">
-                                    Prototype
-                                </div>
+                    </div>
+                </article>
+
+                <!-- ★ PROJECT 2   Strategic Cannon Puzzle -->
+                <article class="reveal project-card portrait" id="project-cannon">
+                    <div class="project-inner">
+                        <div class="project-media">
+                            <video autoplay muted loop playsinline poster="./assets/images/BlastScreenshot1.png">
+                                <source src="./assets/videos/blastblocks.mp4" type="video/mp4">
+                            </video>
+                            <div class="project-badges">
+                                <span class="badge badge-amber">Open Source</span>
+                                <span class="badge badge-neutral">Mobile Puzzle</span>
                             </div>
-                            <div class="flex flex-col gap-3 flex-1">
-                                <div class="flex justify-between items-start">
-                                    <h3
-                                        class="text-white text-xl font-bold leading-tight group-hover:text-primary transition-colors">
-                                        Dashing Mechanic</h3>
-                                    <span class="material-symbols-outlined text-gray-500">speed</span>
-                                </div>
-                                <p class="text-gray-400 text-sm leading-relaxed line-clamp-2">
-                                    Experimental movement prototype focusing on dashing physics, momentum conservation,
-                                    and screen shake.
-                                </p>
-                                <div class="flex flex-wrap gap-2 mt-auto pt-2">
-                                    <span
-                                        class="px-2 py-1 rounded bg-[#232348] text-gray-300 text-xs font-medium">Unity</span>
-                                    <span
-                                        class="px-2 py-1 rounded bg-[#232348] text-gray-300 text-xs font-medium">C#</span>
-                                    <span
-                                        class="px-2 py-1 rounded bg-[#232348] text-gray-300 text-xs font-medium">Prototype</span>
-                                    <span
-                                        class="px-2 py-1 rounded bg-[#232348] text-gray-300 text-xs font-medium">Physics</span>
-                                    <span
-                                        class="px-2 py-1 rounded bg-[#232348] text-gray-300 text-xs font-medium">Mechanics</span>
-                                </div>
-                                <div class="flex gap-3 mt-2 border-t border-[#232348] pt-4">
-                                    <button
-                                        class="flex-1 border border-[#232348] hover:border-white text-white text-sm font-bold py-2 rounded transition-colors flex items-center justify-center gap-2"
-                                        onclick="openVideoModal('./assets/videos/dash.mp4')">
-                                        <span class="material-symbols-outlined text-lg">play_circle</span> Watch Video
-                                    </button>
-                                </div>
+                            <div class="play-overlay" onclick="playVid('./assets/videos/blastblocks.mp4')">
+                                <div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
                             </div>
                         </div>
+                        <div class="project-body">
+                            <div class="project-head">
+                                <h3 class="project-title">Strategic Cannon Puzzle</h3>
+                            </div>
+                            <div class="project-tech mono">Unity · C# · Editor Scripting · Firebase</div>
+
+                            <div class="my-role">
+                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                                <span><strong>My role: Solo Indie Developer.</strong> Built the custom level design tool, modular game architecture, Firebase live-ops backend, rendering optimization, and inventory system.</span>
+                            </div>
+
+                            <p class="project-pitch">A grid-based mobile puzzle built around a custom level-design pipeline, live-ops rewards, and a deep inventory meta.</p>
+
+                            <div class="contrib-label">What I built</div>
+                            <ul class="contrib">
+                                <li><b>Custom Level Design Tool:</b> a Unity Editor Window (<span class="mono">LevelMakerTool</span>) with paint-based grid UI &amp; ScriptableObject serialization.</li>
+                                <li><b>Rendering optimization:</b> used <b>MaterialPropertyBlock</b> for dynamic block/cannon colors, avoiding runtime material instances and preserving draw-call batching.</li>
+                                <li><b>Modular architecture:</b> decoupled GridManager, InventoryManager &amp; SlotManager with event-driven logic; column shifting &amp; recursive block fusing tweened via DOTween.</li>
+                                <li><b>Live-ops backend:</b> Firebase Anonymous Auth for onboarding + Remote Config to balance daily coin rewards without app updates.</li>
+                                <li><b>Inventory system:</b> supports multi-slot linked items with adjacent-slot detection, sorting &amp; merging mechanics.</li>
+                            </ul>
+
+                            <div class="outcome">
+                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14M22 4 12 14.01l-3-3"/></svg>
+                                <span>Cut level creation time from <b>~20 min to under 2 min (90% faster)</b>.</span>
+                            </div>
+
+                            <div class="project-links">
+                                <a class="plink" href="https://github.com/RgHNr/Block-Blasting" target="_blank" rel="noopener">
+                                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58v-2.23c-3.34.72-4.04-1.42-4.04-1.42-.55-1.39-1.33-1.76-1.33-1.76-1.09-.74.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5.99.1-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.66.25 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.8 5.62-5.48 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.22.7.83.58A12 12 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                                    View Source
+                                </a>
+                                <a class="plink primary-link" href="javascript:void(0)" onclick="playVid('./assets/videos/blastblocks.mp4')">
+                                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                                    Play Demo
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ★ PROJECT 3   Tri-Language Dictionary -->
+                <article class="reveal project-card" id="project-dictionary">
+                    <div class="project-media multi-screenshot">
+                        <div class="screenshot-row">
+                            <img src="./assets/images/feature graphics.png" alt="Tri-Language Dictionary Search Screen" loading="lazy" />
+                            
+                        </div>
+                        <div class="project-badges">
+                            <span class="badge badge-blue">On Google Play</span>
+                            <span class="badge badge-green">1,000+ Downloads</span>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-head">
+                            <h3 class="project-title">Tri-Language Dictionary Translator</h3>
+                        </div>
+                        <div class="project-tech mono">Unity · C# · UI Integration</div>
+
+                        <div class="my-role">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                            <span><strong>My role: Solo developer.</strong> Built the memory-efficient audio system, CSV data parser, and all UI/UX. Owned the full product lifecycle from development to Google Play launch.</span>
+                        </div>
+
+                        <p class="project-pitch">A shipped Android utility with bidirectional search across three languages   engineered to stay light on memory and offline-first.</p>
+
+                        <div class="contrib-label">What I built</div>
+                        <ul class="contrib">
+                            <li><b>Memory-efficient audio:</b> Lazy Loading streams pronunciation clips from disk on-demand, instead of pre-loading the whole library into RAM.</li>
+                            <li><b>Flexible data layer:</b> parses raw CSV into custom C# objects, enabling bidirectional search in any of three languages.</li>
+                            <li><b>Full lifecycle ownership:</b> iterated UI/UX from user feedback to a responsive interface, then shipped to Google Play.</li>
+                        </ul>
+
+                        <div class="outcome">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14M22 4 12 14.01l-3-3"/></svg>
+                            <span>Reached <b>1,000+ organic downloads</b> on Google Play.</span>
+                        </div>
+
+                        <div class="project-links">
+                            <a class="plink primary-link" href="https://play.google.com/store/apps/details?id=com.Squaresumgames.Nobiina" target="_blank" rel="noopener">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+                                Google Play
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ★ PROJECT 4   Dashing Mechanic Prototype -->
+                <article class="reveal project-card portrait mirrored" id="project-dash">
+                    <div class="project-inner">
+                        <div class="project-body">
+                            <div class="project-head">
+                                <h3 class="project-title">Dashing Mechanic Prototype</h3>
+                            </div>
+                            <div class="project-tech mono">Unity · C# · Physics</div>
+
+                            <div class="my-role">
+                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                                <span><strong>My role: Solo.</strong> Designed and programmed the entire mechanic   momentum system, screen shake, hit-stop, and visual trail effects.</span>
+                            </div>
+
+                            <p class="project-pitch">An experimental movement prototype exploring how momentum and screen-shake sell a single, satisfying mechanic.</p>
+
+                            <div class="contrib-label">What I built</div>
+                            <ul class="contrib">
+                                <li><b>Momentum-conserving dash:</b> velocity preserved &amp; redirected for a weighty, predictable feel.</li>
+                                <li><b>Game-feel layer:</b> tuned screen shake, hit-stop &amp; trail to amplify impact.</li>
+                            </ul>
+
+                            <div class="project-links">
+                                <a class="plink primary-link" href="javascript:void(0)" onclick="playVid('./assets/videos/dash.mp4')">
+                                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                                    Watch Prototype
+                                </a>
+                            </div>
+                        </div>
+                        <div class="project-media">
+                            <video autoplay muted loop playsinline poster="./assets/images/slash2.png">
+                                <source src="./assets/videos/dash.mp4" type="video/mp4">
+                            </video>
+                            <div class="project-badges">
+                                <span class="badge badge-amber">Prototype</span>
+                                <span class="badge badge-neutral">R&amp;D</span>
+                            </div>
+                            <div class="play-overlay" onclick="playVid('./assets/videos/dash.mp4')">
+                                <div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- ════════════════════════════════════════════════════
+             SECTION 3   SKILLS & ENGINES
+             Guide: "Engines, languages, tools"
+             ════════════════════════════════════════════════════ -->
+        <section class="skills wrap" id="skills">
+            <div class="reveal section-label mono"><span class="hash">#</span> toolkit</div>
+            <h2 class="reveal" style="font-size:clamp(26px,4vw,34px);font-weight:800;letter-spacing:-.02em;margin-bottom:36px;">
+                Skills &amp; Engines
+            </h2>
+
+            <div class="reveal skills-grid">
+                <div class="skill-row">
+                    <div class="label">Engine</div>
+                    <div class="items"><b>Unity</b> (primary, daily driver)</div>
+                </div>
+                <div class="skill-row">
+                    <div class="label">Languages</div>
+                    <div class="items">C#<span class="sep">·</span>HLSL (Shaders)<span class="sep">·</span>Python<span class="sep">·</span>MATLAB</div>
+                </div>
+                <div class="skill-row">
+                    <div class="label">Graphics &amp; Perf</div>
+                    <div class="items">GPU Instancing<span class="sep">·</span>Compute Shaders<span class="sep">·</span>MaterialPropertyBlock<span class="sep">·</span>Addressables<span class="sep">·</span>Profiler &amp; Frame Debugger</div>
+                </div>
+                <div class="skill-row">
+                    <div class="label">Systems &amp; AI</div>
+                    <div class="items">FSM &amp; NavMesh AI<span class="sep">·</span>IK / Procedural Animation<span class="sep">·</span>Editor Scripting<span class="sep">·</span>ScriptableObjects<span class="sep">·</span>DOTween</div>
+                </div>
+                <div class="skill-row">
+                    <div class="label">Backend &amp; Ops</div>
+                    <div class="items">Firebase (Auth &amp; Remote Config)<span class="sep">·</span>AdMob / Unity Ads<span class="sep">·</span>Android / ASO<span class="sep">·</span>Google Play Console</div>
+                </div>
+                <div class="skill-row">
+                    <div class="label">Tools</div>
+                    <div class="items">Git<span class="sep">·</span>Visual Studio<span class="sep">·</span>Blender<span class="sep">·</span>UGUI / UI Toolkit</div>
+                </div>
+                <div class="skill-row">
+                    <div class="label">Architecture</div>
+                    <div class="items">SOLID Principles<span class="sep">·</span>Design Patterns<span class="sep">·</span>OOP<span class="sep">·</span>Event-Driven Systems<span class="sep">·</span>Linear Algebra</div>
+                </div>
+            </div>
+
+            <div class="reveal cap-grid">
+                <div class="cap-card">
+                    <div class="cap-icon">⚡</div>
+                    <h4>Optimization-First</h4>
+                    <p>Profiler-driven, batch-friendly, memory-conscious. I treat performance as a feature, not an afterthought.</p>
+                </div>
+                <div class="cap-card">
+                    <div class="cap-icon">🏗️</div>
+                    <h4>Clean Architecture</h4>
+                    <p>SOLID, design patterns, event-driven systems. Code that scales with the project, not against it.</p>
+                </div>
+                <div class="cap-card">
+                    <div class="cap-icon">🚀</div>
+                    <h4>Shipped End-to-End</h4>
+                    <p>Concept → store → live-ops → updates. I own the full product lifecycle and deliver to real users.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ════════════════════════════════════════════════════
+             SECTION 5   BIO / ABOUT
+             Guide: "2–3 sentences: who you are, your focus, what you want"
+             ════════════════════════════════════════════════════ -->
+        <section class="about wrap" id="about">
+            <div class="reveal section-label mono"><span class="hash">#</span> about</div>
+            <h2 class="reveal" style="font-size:clamp(26px,4vw,34px);font-weight:800;letter-spacing:-.02em;margin-bottom:36px;">
+                About Me
+            </h2>
+
+            <div class="reveal about-grid">
+                <div class="about-avatar">
+                    <img src="./assets/images/fused_avatar.png" alt="Ragy Nour   Unity Game Developer" />
+                </div>
+                <div class="about-text">
+                    <p>
+                        I'm a Unity developer who treats <strong>performance as a feature</strong>. My Electronics Engineering
+                        background gave me a low-level intuition for how rendering, memory, and the CPU actually behave   which
+                        is why I gravitate toward the hard problems: GPU instancing crowds of thousands, lazy-loading audio, and
+                        keeping draw calls batched on low-end Android.
+                    </p>
+                    <p>
+                        As an indie at <strong>Squaresum Games</strong> (2021–present), I've owned full product lifecycles  
+                        architecture, gameplay, monetization, ASO, live-ops, and post-launch support   and shipped multiple
+                        titles to Google Play, scaling one past <strong>1,000+ organic users</strong>.
+                    </p>
+                    <p>
+                        I'm looking for Unity / game-dev roles where I can bring my optimization and systems-design skills
+                        to a team building something players love. Open to remote and on-site opportunities.
+                    </p>
+
+                    <div class="about-facts">
+                        <div class="fact"><div class="k">Education</div><div class="v">B.Sc. Electronics Eng.</div></div>
+                        <div class="fact"><div class="k">University</div><div class="v">Nile University, Giza</div></div>
+                        <div class="fact"><div class="k">GPA</div><div class="v">3.52 · Dean's List</div></div>
+                        <div class="fact"><div class="k">Languages</div><div class="v">English · Arabic</div></div>
+                        <div class="fact"><div class="k">Location</div><div class="v">Giza, Egypt (Remote OK)</div></div>
+                        <div class="fact"><div class="k">Shipped Titles</div><div class="v">2+ on Google Play</div></div>
                     </div>
                 </div>
             </div>
-            <footer class="border-t border-[#232348] bg-[#0c0c1d] py-10">
-                <div class="px-4 md:px-10 lg:px-40 flex justify-center">
-                    <div
-                        class="layout-content-container flex flex-col md:flex-row max-w-[960px] flex-1 justify-between items-center gap-6">
-                        <div class="flex flex-col gap-2 text-center md:text-left">
-                            <h2 class="text-white text-xl font-bold tracking-tight">RAGY NOUR</h2>
-                            <p class="text-gray-500 text-sm">Building digital worlds one pixel at a time.</p>
-                        </div>
-                        <div class="flex gap-6">
-                            <a class="text-gray-400 hover:text-white transition-colors group"
-                                href="https://github.com/RgHNr">
-                                <span class="sr-only">GitHub</span>
-                                <div
-                                    class="p-2 rounded-full border border-[#232348] group-hover:bg-[#232348] transition-colors">
-                                    <span class="material-symbols-outlined text-xl">code</span>
-                                </div>
-                            </a>
-                            <a class="text-gray-400 hover:text-white transition-colors group" href="#">
-                                <span class="sr-only">LinkedIn</span>
-                                <div
-                                    class="p-2 rounded-full border border-[#232348] group-hover:bg-[#232348] transition-colors">
-                                    <span class="material-symbols-outlined text-xl">work</span>
-                                </div>
-                            </a>
-                            <a class="text-gray-400 hover:text-white transition-colors group"
-                                href="mailto:ragyhassan22@gmail.com">
-                                <span class="sr-only">Email</span>
-                                <div
-                                    class="p-2 rounded-full border border-[#232348] group-hover:bg-[#232348] transition-colors">
-                                    <span class="material-symbols-outlined text-xl">mail</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="text-gray-600 text-xs text-center md:text-right">
-                            <p>© 2026 Ragy Nour.</p>
-                            <p>All rights reserved.</p>
-                        </div>
-                    </div>
+        </section>
+
+        <!-- ════════════════════════════════════════════════════
+             EXPERIENCE & EDUCATION
+             ════════════════════════════════════════════════════ -->
+        <section class="experience wrap" id="experience">
+            <div class="reveal section-label mono"><span class="hash">#</span> background</div>
+            <h2 class="reveal" style="font-size:clamp(26px,4vw,34px);font-weight:800;letter-spacing:-.02em;margin-bottom:36px;">
+                Experience &amp; Education
+            </h2>
+
+            <div class="reveal timeline">
+                <div class="tl-item">
+                    <div class="tl-when mono">2021   Present</div>
+                    <div class="tl-title">Unity Developer (Indie)</div>
+                    <div class="tl-org">Squaresum Games · Giza, Egypt</div>
+                    <ul>
+                        <li>Owned the <b>full product lifecycle</b> for multiple mobile titles   release, ASO, and post-launch updates driven by crash analytics.</li>
+                        <li>Integrated monetization (AdMob / Unity Ads) and used Play Console metrics to track retention, scaling one product to <b>1,000+ organic users</b>.</li>
+                        <li>Translated technical constraints into design solutions, keeping stable framerates on low-end Android while preserving visual fidelity.</li>
+                    </ul>
                 </div>
-            </footer>
+                <div class="tl-item">
+                    <div class="tl-when mono">2014   2019</div>
+                    <div class="tl-title">B.Sc. Communication &amp; Electronics Engineering</div>
+                    <div class="tl-org">Nile University · Giza, Egypt</div>
+                    <ul>
+                        <li>Graduated with a <b>3.52 GPA</b>, earning a place on the Dean's Honor List.</li>
+                        <li>Built the low-level intuition for hardware, signal &amp; memory that now powers my optimization work.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ════════════════════════════════════════════════════
+             SECTION 4   RESUME LINK
+             Guide: "A downloadable PDF resume that matches the portfolio"
+             (Integrated into hero + contact + nav   always visible)
+             ════════════════════════════════════════════════════ -->
+
+        <!-- ════════════════════════════════════════════════════
+             SECTION 6 & 7   CONTACT + PLATFORM LINKS
+             Guide: "Email (clickable), LinkedIn   never a contact form only"
+             "itch.io (playable builds) + GitHub (source)"
+             ════════════════════════════════════════════════════ -->
+        <section class="contact wrap" id="contact">
+            <div class="reveal section-label mono"><span class="hash">#</span> contact</div>
+            <h2 class="reveal">
+                Let's build something that<br/>
+                <span class="gradient-text">runs at 60fps.</span>
+            </h2>
+            <p class="reveal sub">Open to Unity / game-dev roles and freelance projects. I read every message and reply fast.</p>
+
+            <div class="reveal contact-actions">
+                <a href="mailto:ragyhassan22@gmail.com" class="btn btn-primary" id="contact-email">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+                    ragyhassan22@gmail.com
+                </a>
+                <a href="resume.pdf" class="btn btn-ghost" id="contact-resume">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3v5h5M19 21H5V3h9l5 5z"/></svg>
+                    Download Resume
+                </a>
+            </div>
+
+            <!-- Platform Links: GitHub + Google Play (guide's "itch.io + GitHub") -->
+            <div class="reveal social-row">
+                <a href="https://github.com/RgHNr" target="_blank" rel="noopener" class="social" aria-label="GitHub" id="social-github">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58v-2.23c-3.34.72-4.04-1.42-4.04-1.42-.55-1.39-1.33-1.76-1.33-1.76-1.09-.74.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5.99.1-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.66.25 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.8 5.62-5.48 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.22.7.83.58A12 12 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                </a>
+                <a href="mailto:ragyhassan22@gmail.com" class="social" aria-label="Email" id="social-email">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+                </a>
+                <a href="#top" class="social" aria-label="Back to top" id="social-top">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5m-7 7 7-7 7 7"/></svg>
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="wrap">
+            <div class="copy">© <span id="year"></span> Ragy Nour · Portfolio structured following the <a href="https://generalistprogrammer.com/tutorials/game-developer-portfolio-and-resume-guide" target="_blank" rel="noopener">Generalist Programmer guide</a>.</div>
         </div>
-    </div>
-    <!-- Video Modal -->
-    <div id="videoModal"
-        class="fixed inset-0 z-[100] hidden flex items-center justify-center bg-black/90 backdrop-blur-sm opacity-0 transition-opacity duration-300">
-        <div class="relative w-full max-w-5xl aspect-video bg-black rounded-lg overflow-hidden shadow-2xl border border-[#232348] transform scale-95 transition-transform duration-300"
-            id="modalContent">
-            <button onclick="closeVideoModal()"
-                class="absolute top-4 right-4 z-10 p-2 bg-black/50 hover:bg-primary text-white rounded-full transition-colors backdrop-blur-md">
-                <span class="material-symbols-outlined text-2xl">close</span>
+    </footer>
+
+    <!-- ===== VIDEO MODAL ===== -->
+    <div class="modal" id="modal" onclick="closeVid(event)">
+        <div class="modal-box" onclick="event.stopPropagation()">
+            <button class="modal-close" onclick="closeVid()" aria-label="Close video">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
             </button>
-            <video id="modalVideo" class="w-full h-full" controls controlsList="nodownload">
-                <source src="" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
+            <video id="modalVid" controls playsinline preload="none" controlslist="nodownload"></video>
         </div>
     </div>
 
     <script>
-        const modal = document.getElementById('videoModal');
-        const modalContent = document.getElementById('modalContent');
-        const video = document.getElementById('modalVideo');
+        // Year
+        document.getElementById('year').textContent = new Date().getFullYear();
 
-        function openVideoModal(videoSrc) {
-            if (!videoSrc) return;
-            gtag('event', 'demo_video_play', {
-                'video_url': videoSrc,
-                'video_name': videoSrc.split('/').pop() // This grabs just the filename like 'football.mp4'
-            });
-
-            video.src = videoSrc;
-            modal.classList.remove('hidden');
-            // Trigger reflow
-            void modal.offsetWidth;
-
-            modal.classList.remove('opacity-0');
-            modalContent.classList.remove('scale-95');
-            modalContent.classList.add('scale-100');
-
-            video.play().catch(e => console.log('Auto-play prevented:', e));
-        }
-
-        function closeVideoModal() {
-            modal.classList.add('opacity-0');
-            modalContent.classList.remove('scale-100');
-            modalContent.classList.add('scale-95');
-
-            setTimeout(() => {
-                modal.classList.add('hidden');
-                video.pause();
-                video.src = '';
-            }, 300);
-        }
-
-        // Close on click outside
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                closeVideoModal();
-            }
+        // Header shadow on scroll
+        var hdr = document.getElementById('main-header');
+        window.addEventListener('scroll', function() {
+            hdr.classList.toggle('scrolled', window.scrollY > 30);
         });
 
-        // Close on Escape key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
-                closeVideoModal();
-            }
+        // Scroll reveal
+        var revealObs = new IntersectionObserver(function(entries) {
+            entries.forEach(function(e) {
+                if (e.isIntersecting) {
+                    e.target.classList.add('visible');
+                    revealObs.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+        document.querySelectorAll('.reveal').forEach(function(el) { revealObs.observe(el); });
+
+        // Video modal
+        var modal = document.getElementById('modal');
+        var modalVid = document.getElementById('modalVid');
+        function playVid(src) {
+            modalVid.src = src;
+            modal.classList.add('open');
+            modalVid.play().catch(function(){});
+            document.body.style.overflow = 'hidden';
+        }
+        function closeVid(e) {
+            if (e && e.target !== modal) return;
+            modal.classList.remove('open');
+            modalVid.pause();
+            modalVid.removeAttribute('src');
+            modalVid.load();
+            document.body.style.overflow = '';
+        }
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeVid();
         });
     </script>
-</body>
 
+</body>
 </html>
